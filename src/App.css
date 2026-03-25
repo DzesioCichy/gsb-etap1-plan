@@ -1,0 +1,20 @@
+/* App styles */
+.map-container {
+  width: 100% !important;
+  height: 600px !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  overflow: hidden !important;
+  display: block !important;
+}
+
+.map-container .leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 8px;
+}
+
+.leaflet-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f0f0;
+}
