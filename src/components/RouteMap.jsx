@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { ROUTE_COORDINATES } from '../data/routeData';
 
 // Force rebuild: 2026-03-25 11:15 - Loading actual GSB trail from etap1_route.json
 
@@ -57,32 +58,15 @@ export default function RouteMap() {
       shadowSize: [41, 41]
     });
 
-    // Ładowanie rzeczywistej trasy z pliku JSON
-    fetch('/etap1_route.json')
-      .then(response => response.json())
-      .then(data => {
-        // Dodanie rzeczywistej trasy na mapę
-        L.polyline(data.coordinates, {
-          color: '#dc2626',
-          weight: 3,
-          opacity: 0.8,
-          dashArray: '5, 5'
-        }).addTo(map);
-      })
-      .catch(error => {
-        console.error('Błąd ładowania trasy:', error);
-        // Fallback na starą trasę jeśli JSON nie załaduje się
-        const routeCoordinates = [
-          [49.7210, 18.8155], // Ustroń Zdrój (start)
-          [49.3550, 19.1600], // Hala Boracza (koniec)
-        ];
-        L.polyline(routeCoordinates, {
-          color: '#dc2626',
-          weight: 3,
-          opacity: 0.8,
-          dashArray: '5, 5'
-        }).addTo(map);
-      });
+    // Dodanie rzeczywistej trasy na mapę (dane osadzone w komponencie)
+    L.polyline(ROUTE_COORDINATES, {
+      color: '#dc2626',
+      weight: 3,
+      opacity: 0.8,
+      dashArray: '5, 5'
+    }).addTo(map);
+    
+    console.log(`✓ Załadowano trasę GSB Etap 1 z ${ROUTE_COORDINATES.length} punktami GPS`);
 
     // Punkty kluczowe
     const keyPoints = [
