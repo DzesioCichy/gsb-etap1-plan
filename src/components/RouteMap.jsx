@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
+// Force rebuild: 2026-03-25 11:15 - Loading actual GSB trail from etap1_route.json
+
 export default function RouteMap() {
   const mapRef = useRef(null);
   const mapInstanceRef = useRef(null);
