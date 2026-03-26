@@ -107,6 +107,7 @@ export default function RouteMap() {
       { lat: 49.683, lon: 18.833, name: 'Równica', icon: peakIcon, km: 4.5 },
       { lat: 49.613, lon: 18.843, name: 'Czantoria Wielka', icon: peakIcon, km: 12 },
       { lat: 49.605, lon: 18.824, name: 'Schronisko Stożek', icon: shelterIcon, km: 21 },
+      { lat: 49.405, lon: 19.11, name: 'Barania Góra', icon: peakIcon, km: 35 },
       { lat: 49.5421407, lon: 19.1697676, name: 'Schronisko PTTK Hala Boracza', icon: shelterIcon, km: 53 },
     ];
 
