@@ -110,8 +110,16 @@ export default function RouteMap() {
       { lat: 49.5421407, lon: 19.1697676, name: 'Schronisko PTTK Hala Boracza', icon: shelterIcon, km: 53 },
     ];
 
-    // Snapuj każdy punkt do najbliższego punktu na trasie
+    // Snapuj każdy punkt do najbliższego punktu na trasie (OPRÓCZ Hali Boraczej)
     const keyPoints = keyPointsOriginal.map(point => {
+      // Hala Boracza - nie snapuj, użyj dokładnych współrzędnych schroniska
+      if (point.name.includes('Hala Boracza')) {
+        return {
+          ...point,
+          distanceFromTrack: 'na schronisku'
+        };
+      }
+      
       const { point: snappedPoint, distance } = findClosestPointOnTrack(
         point.lat,
         point.lon,
@@ -127,7 +135,7 @@ export default function RouteMap() {
       };
     });
 
-    console.log('✓ Markery snapowane do trasy:', keyPoints);
+    console.log('✓ Markery snapowane do trasy (Hala Boracza na dokładnych współrzędnych):', keyPoints);
 
     // Dodanie markerów dla punktów kluczowych (teraz na trasie)
     keyPoints.forEach(point => {
@@ -136,7 +144,7 @@ export default function RouteMap() {
           `<strong>${point.name}</strong><br/>` +
           `Dystans: ${point.km} km<br/>` +
           `Współrzędne: ${point.lat.toFixed(4)}, ${point.lon.toFixed(4)}<br/>` +
-          `<small>Oddalenie od szlaku: ${point.distanceFromTrack}m</small>`
+          `<small>${typeof point.distanceFromTrack === 'string' ? point.distanceFromTrack : `Oddalenie od szlaku: ${point.distanceFromTrack}m`}</small>`
         )
         .addTo(map);
     });
