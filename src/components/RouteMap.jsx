@@ -68,16 +68,16 @@ export default function RouteMap() {
     
     console.log(`✓ Załadowano trasę GSB Etap 1 z ${ROUTE_COORDINATES.length} punktami GPS`);
 
-    // Punkty kluczowe
+    // Punkty kluczowe - współrzędne z GPX i Maptons
     const keyPoints = [
       { lat: 49.7210, lon: 18.8155, name: 'Ustroń Zdrój (Start)', icon: startIcon, km: 0 },
-      { lat: 49.6850, lon: 18.8450, name: 'Równica', icon: peakIcon, km: 4.5 },
-      { lat: 49.6350, lon: 18.8800, name: 'Czantoria Wielka', icon: peakIcon, km: 12 },
-      { lat: 49.5750, lon: 18.9400, name: 'Schronisko Stożek', icon: shelterIcon, km: 21 },
-      { lat: 49.4950, lon: 19.0200, name: 'Przełęcz Kubalonka', icon: peakIcon, km: 29 },
-      { lat: 49.4050, lon: 19.1100, name: 'Barania Góra', icon: peakIcon, km: 41 },
-      { lat: 49.3050, lon: 19.2100, name: 'Węgierska Górka', icon: peakIcon, km: 48 },
-      { lat: 49.3550, lon: 19.1600, name: 'Hala Boracza (Nocleg)', icon: shelterIcon, km: 53 },
+      { lat: 49.683, lon: 18.833, name: 'Równica', icon: peakIcon, km: 4.5 },
+      { lat: 49.613, lon: 18.843, name: 'Czantoria Wielka', icon: peakIcon, km: 12 },
+      { lat: 49.605, lon: 18.824, name: 'Schronisko Stożek', icon: shelterIcon, km: 21 },
+      { lat: 49.573, lon: 19.529, name: 'Babia Góra (Diablak)', icon: peakIcon, km: 35 },
+      { lat: 49.527, lon: 19.284, name: 'Pilsko (Hala Miziowa)', icon: peakIcon, km: 41 },
+      { lat: 49.549, lon: 20.111, name: 'Turbacz', icon: peakIcon, km: 45 },
+      { lat: 49.5421407, lon: 19.1697676, name: 'Schronisko PTTK Hala Boracza', icon: shelterIcon, km: 53 },
     ];
 
     // Dodanie markerów dla punktów kluczowych
