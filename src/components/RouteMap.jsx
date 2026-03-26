@@ -3,7 +3,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { ROUTE_COORDINATES } from '../data/routeData';
 
-// Force rebuild: 2026-03-25 11:15 - Loading actual GSB trail from etap1_route.json
+// Force rebuild: 2026-03-26 10:40 - Fixed marker coordinates to match GPS trail waypoints
 
 export default function RouteMap() {
   const mapRef = useRef(null);
