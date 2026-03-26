@@ -104,7 +104,7 @@ export default function RouteMap() {
     // Punkty kluczowe - TYLKO Etap 1 (Ustroń → Hala Boracza)
     const keyPointsOriginal = [
       { lat: 49.7210, lon: 18.8155, name: 'Ustroń Zdrój (Start)', icon: startIcon, km: 0 },
-      { lat: 49.683, lon: 18.833, name: 'Równica', icon: peakIcon, km: 4.5 },
+      { lat: 49.7247, lon: 18.8566, name: 'Równica', icon: peakIcon, km: 4.5 },
       { lat: 49.6788, lon: 18.8047, name: 'Czantoria Wielka', icon: peakIcon, km: 12 },
       { lat: 49.605, lon: 18.824, name: 'Schronisko Stożek', icon: shelterIcon, km: 21 },
       { lat: 49.611443, lon: 19.010590, name: 'Barania Góra', icon: peakIcon, km: 35 },
