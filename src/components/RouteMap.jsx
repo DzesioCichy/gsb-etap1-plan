@@ -4,11 +4,11 @@ import 'leaflet/dist/leaflet.css';
 import { ROUTE_COORDINATES } from '../data/routeData';
 import { ETAP2_ROUTE_COORDINATES, ETAP2_KEY_POINTS } from '../data/etap2Data';
 
-// Force rebuild: 2026-03-27 - Naprawiona obsługa Etap 2
+// Force rebuild: 2026-03-27 - Przebudowana obsługa Etap 2 z prawidłowym ładowaniem danych
 
 // Haversine distance calculator
 const haversineDistance = (lat1, lon1, lat2, lon2) => {
-  const R = 6371; // Earth radius in km
+  const R = 6371;
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
   const dLon = ((lon2 - lon1) * Math.PI) / 180;
   const a =
@@ -57,11 +57,36 @@ export default function RouteMap({ activeEtap = 'etap1' }) {
         mapInstanceRef.current.remove();
       }
 
+      // Wybór danych w zależności od etapu
+      let routeCoordinates = [];
+      let keyPointsData = [];
+      let mapCenter = [49.5, 19.0];
+      let mapZoom = 11;
+
+      if (activeEtap === 'etap1') {
+        routeCoordinates = ROUTE_COORDINATES || [];
+        mapCenter = [49.5, 19.0];
+        mapZoom = 11;
+        keyPointsData = [
+          { lat: 49.7210, lon: 18.8155, name: 'Ustroń Zdrój (Start)', type: 'start', km: 0 },
+          { lat: 49.7247, lon: 18.8566, name: 'Równica', type: 'peak', km: 4.5 },
+          { lat: 49.6788, lon: 18.8047, name: 'Czantoria Wielka', type: 'peak', km: 12 },
+          { lat: 49.605, lon: 18.824, name: 'Schronisko Stożek', type: 'shelter', km: 21 },
+          { lat: 49.611443, lon: 19.010590, name: 'Barania Góra', type: 'peak', km: 35 },
+          { lat: 49.5421407, lon: 19.1697676, name: 'Schronisko PTTK Hala Boracza', type: 'shelter', km: 53 },
+        ];
+      } else if (activeEtap === 'etap2') {
+        routeCoordinates = ETAP2_ROUTE_COORDINATES || [];
+        mapCenter = [49.57, 19.57];
+        mapZoom = 10;
+        keyPointsData = ETAP2_KEY_POINTS || [];
+      }
+
+      console.log(`📍 Etap ${activeEtap === 'etap1' ? '1' : '2'}: ${routeCoordinates.length} punktów GPS, ${keyPointsData.length} markerów`);
+
       // Inicjalizacja mapy
-      const map = L.map(mapRef.current).setView(
-        activeEtap === 'etap1' ? [49.5, 19.0] : [49.57, 19.57],
-        activeEtap === 'etap1' ? 11 : 10
-      );
+      const map = L.map(mapRef.current).setView(mapCenter, mapZoom);
+      mapInstanceRef.current = map;
 
       // Dodanie warstwy kafelków
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -106,24 +131,6 @@ export default function RouteMap({ activeEtap = 'etap1' }) {
         shadowSize: [41, 41]
       });
 
-      // Wybór danych w zależności od etapu
-      const routeCoordinates = activeEtap === 'etap1' ? ROUTE_COORDINATES : ETAP2_ROUTE_COORDINATES;
-      
-      // Bezpieczna obsługa keyPointsData
-      let keyPointsData = [];
-      if (activeEtap === 'etap1') {
-        keyPointsData = [
-          { lat: 49.7210, lon: 18.8155, name: 'Ustroń Zdrój (Start)', type: 'start', km: 0 },
-          { lat: 49.7247, lon: 18.8566, name: 'Równica', type: 'peak', km: 4.5 },
-          { lat: 49.6788, lon: 18.8047, name: 'Czantoria Wielka', type: 'peak', km: 12 },
-          { lat: 49.605, lon: 18.824, name: 'Schronisko Stożek', type: 'shelter', km: 21 },
-          { lat: 49.611443, lon: 19.010590, name: 'Barania Góra', type: 'peak', km: 35 },
-          { lat: 49.5421407, lon: 19.1697676, name: 'Schronisko PTTK Hala Boracza', type: 'shelter', km: 53 },
-        ];
-      } else if (Array.isArray(ETAP2_KEY_POINTS)) {
-        keyPointsData = ETAP2_KEY_POINTS;
-      }
-
       // Mapowanie ikon
       const getIcon = (type) => {
         switch (type) {
@@ -145,6 +152,8 @@ export default function RouteMap({ activeEtap = 'etap1' }) {
         }).addTo(map);
         
         console.log(`✓ Załadowano trasę GSB ${activeEtap === 'etap1' ? 'Etap 1' : 'Etap 2'} z ${routeCoordinates.length} punktami GPS`);
+      } else {
+        console.warn(`⚠️ Brak danych trasy dla ${activeEtap}`);
       }
 
       // Snapuj każdy punkt do najbliższego punktu na trasie
@@ -176,12 +185,11 @@ export default function RouteMap({ activeEtap = 'etap1' }) {
           lon: snappedPoint[1],
           originalLat: point.lat,
           originalLon: point.lon,
-          distanceFromTrack: (distance * 1000).toFixed(0) // convert to meters
+          distanceFromTrack: (distance * 1000).toFixed(0)
         };
       });
 
-        console.log(`✓ Markery snapowane do trasy (${activeEtap === 'etap1' ? 'Etap 1' : 'Etap 2'}):`, keyPoints);
-        console.log(`✓ Liczba markerów: ${keyPoints.length}`);
+      console.log(`✓ Markery snapowane (${activeEtap === 'etap1' ? 'Etap 1' : 'Etap 2'}): ${keyPoints.length}`);
 
       // Dodanie markerów dla punktów kluczowych
       keyPoints.forEach(point => {
@@ -198,34 +206,26 @@ export default function RouteMap({ activeEtap = 'etap1' }) {
             ${point.description ? `<em>${point.description}</em>` : ''}
           </div>
         `;
+        
         marker.bindPopup(popupContent);
       });
 
-      // Automatyczne przybliżenie do granic trasy
+      // Przybliż mapę do granic trasy
       if (Array.isArray(routeCoordinates) && routeCoordinates.length > 0) {
         const bounds = L.latLngBounds(routeCoordinates);
         map.fitBounds(bounds, { padding: [50, 50] });
-        console.log(`✓ Mapa przybliżona do granic trasy (${routeCoordinates.length} punktów)`);
-      } else {
-        console.error(`❌ routeCoordinates jest puste lub nie jest tablicą!`, routeCoordinates);
       }
 
-      mapInstanceRef.current = map;
     } catch (error) {
-      console.error(`❌ Błąd w RouteMap dla ${activeEtap}:`, error);
+      console.error('❌ Błąd w RouteMap:', error);
     }
+
+    return () => {
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.remove();
+      }
+    };
   }, [activeEtap]);
 
-  return (
-    <div
-      ref={mapRef}
-      style={{
-        height: '500px',
-        width: '100%',
-        borderRadius: '8px',
-        overflow: 'hidden',
-        border: '2px solid #dc2626'
-      }}
-    />
-  );
+  return <div ref={mapRef} style={{ width: '100%', height: '500px', borderRadius: '8px', border: '2px solid #dc2626' }} />;
 }
