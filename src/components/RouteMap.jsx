@@ -230,3 +230,4 @@ export default function RouteMap({ activeEtap = 'etap1' }) {
 
   return <div ref={mapRef} style={{ width: '100%', height: '500px', borderRadius: '8px', border: '2px solid #dc2626' }} />;
 }
+// Rebuild timestamp: 1774655715
