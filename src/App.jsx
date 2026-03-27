@@ -11,11 +11,6 @@ function App() {
   const [activeTab, setActiveTab] = useState('map')
   const [activeEtap, setActiveEtap] = useState('etap1')
 
-  const etaps = [
-    { id: 'etap1', label: 'Etap 1: Ustroń → Hala Boracza' },
-    { id: 'etap2', label: 'Etap 2: Barania Góra → Turbacz' },
-  ]
-
   const tabs = [
     { id: 'map', label: '🗺️ Mapa', icon: '🗺️' },
     { id: 'schedule', label: '📅 Harmonogram', icon: '📅' },
@@ -30,25 +25,8 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black">
       {/* Header */}
-      <header className="bg-black bg-opacity-50 border-b border-gray-700 sticky top-0 z-[9999]">
+      <header className="bg-black bg-opacity-50 border-b border-gray-700 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-6">
-          {/* Selektor Etapu */}
-          <div className="mb-4 flex gap-2">
-            {etaps.map(etap => (
-              <button
-                key={etap.id}
-                onClick={() => setActiveEtap(etap.id)}
-                className={`px-4 py-2 rounded-lg font-semibold transition whitespace-nowrap ${
-                  activeEtap === etap.id
-                    ? 'bg-red-600 text-white shadow-lg'
-                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                }`}
-              >
-                {etap.label}
-              </button>
-            ))}
-          </div>
-
           <div className="flex items-center justify-between mb-6">
             <div>
               <h1 className="text-4xl font-bold text-red-500">{etapData.title}</h1>
@@ -82,6 +60,30 @@ function App() {
 
       {/* Główna zawartość */}
       <main className="max-w-7xl mx-auto px-4 py-8">
+        {/* Selektor Etapu - WIDOCZNY W GŁÓWNEJ ZAWARTOŚCI */}
+        <div className="mb-6 flex gap-2 flex-wrap">
+          <button
+            onClick={() => setActiveEtap('etap1')}
+            className={`px-6 py-3 rounded-lg font-bold transition ${
+              activeEtap === 'etap1'
+                ? 'bg-red-600 text-white shadow-lg'
+                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+            }`}
+          >
+            📍 Etap 1: Ustroń → Hala Boracza
+          </button>
+          <button
+            onClick={() => setActiveEtap('etap2')}
+            className={`px-6 py-3 rounded-lg font-bold transition ${
+              activeEtap === 'etap2'
+                ? 'bg-red-600 text-white shadow-lg'
+                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+            }`}
+          >
+            📍 Etap 2: Barania Góra → Turbacz
+          </button>
+        </div>
+
         {activeTab === 'map' && (
           <div className="space-y-6">
             <div className="section-card">
@@ -135,4 +137,3 @@ function App() {
 }
 
 export default App
-// Force rebuild: Fri Mar 27 09:20:58 EDT 2026
