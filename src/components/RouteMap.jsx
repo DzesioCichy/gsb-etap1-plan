@@ -4,8 +4,6 @@ import 'leaflet/dist/leaflet.css';
 import { ROUTE_COORDINATES } from '../data/routeData';
 import { ETAP2_ROUTE_COORDINATES, ETAP2_KEY_POINTS } from '../data/etap2Data';
 
-// Force rebuild: 2026-03-27 - Przebudowana obsługa Etap 2 z prawidłowym ładowaniem danych
-
 // Haversine distance calculator
 const haversineDistance = (lat1, lon1, lat2, lon2) => {
   const R = 6371;
@@ -44,6 +42,16 @@ const findClosestPointOnTrack = (poiLat, poiLon, trackCoordinates) => {
   return { point: closestPoint || [poiLat, poiLon], distance: minDistance, index: closestIndex };
 };
 
+// Etap 1 key points - hardcoded
+const ETAP1_KEY_POINTS = [
+  { lat: 49.7210, lon: 18.8155, name: 'Ustroń Zdrój (Start)', type: 'start', km: 0 },
+  { lat: 49.7247, lon: 18.8566, name: 'Równica', type: 'peak', km: 4.5 },
+  { lat: 49.6788, lon: 18.8047, name: 'Czantoria Wielka', type: 'peak', km: 12 },
+  { lat: 49.605, lon: 18.824, name: 'Schronisko Stożek', type: 'shelter', km: 21 },
+  { lat: 49.611443, lon: 19.010590, name: 'Barania Góra', type: 'peak', km: 35 },
+  { lat: 49.5421407, lon: 19.1697676, name: 'Schronisko PTTK Hala Boracza', type: 'shelter', km: 53 },
+];
+
 export default function RouteMap({ activeEtap = 'etap1' }) {
   const mapRef = useRef(null);
   const mapInstanceRef = useRef(null);
@@ -67,22 +75,15 @@ export default function RouteMap({ activeEtap = 'etap1' }) {
         routeCoordinates = ROUTE_COORDINATES || [];
         mapCenter = [49.5, 19.0];
         mapZoom = 11;
-        keyPointsData = [
-          { lat: 49.7210, lon: 18.8155, name: 'Ustroń Zdrój (Start)', type: 'start', km: 0 },
-          { lat: 49.7247, lon: 18.8566, name: 'Równica', type: 'peak', km: 4.5 },
-          { lat: 49.6788, lon: 18.8047, name: 'Czantoria Wielka', type: 'peak', km: 12 },
-          { lat: 49.605, lon: 18.824, name: 'Schronisko Stożek', type: 'shelter', km: 21 },
-          { lat: 49.611443, lon: 19.010590, name: 'Barania Góra', type: 'peak', km: 35 },
-          { lat: 49.5421407, lon: 19.1697676, name: 'Schronisko PTTK Hala Boracza', type: 'shelter', km: 53 },
-        ];
+        keyPointsData = ETAP1_KEY_POINTS;
+        console.log(`📍 Etap 1: ${routeCoordinates.length} punktów GPS, ${keyPointsData.length} markerów`);
       } else if (activeEtap === 'etap2') {
         routeCoordinates = ETAP2_ROUTE_COORDINATES || [];
         mapCenter = [49.57, 19.57];
         mapZoom = 10;
         keyPointsData = ETAP2_KEY_POINTS || [];
+        console.log(`📍 Etap 2: ${routeCoordinates.length} punktów GPS, ${keyPointsData.length} markerów`);
       }
-
-      console.log(`📍 Etap ${activeEtap === 'etap1' ? '1' : '2'}: ${routeCoordinates.length} punktów GPS, ${keyPointsData.length} markerów`);
 
       // Inicjalizacja mapy
       const map = L.map(mapRef.current).setView(mapCenter, mapZoom);
