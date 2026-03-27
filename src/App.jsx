@@ -4,9 +4,17 @@ import RouteMap from './components/RouteMap'
 import Schedule from './components/Schedule'
 import Logistics from './components/Logistics'
 import Nutrition from './components/Nutrition'
+import { ETAP1_TITLE, ETAP1_SUBTITLE, ETAP1_DATE, ETAP1_DISTANCE, ETAP1_ELEVATION, ETAP1_TIME } from './data/routeData'
+import { ETAP2_TITLE, ETAP2_SUBTITLE, ETAP2_DATE, ETAP2_DISTANCE, ETAP2_ELEVATION, ETAP2_TIME } from './data/etap2Data'
 
 function App() {
   const [activeTab, setActiveTab] = useState('map')
+  const [activeEtap, setActiveEtap] = useState('etap1')
+
+  const etaps = [
+    { id: 'etap1', label: 'Etap 1: Ustroń → Hala Boracza' },
+    { id: 'etap2', label: 'Etap 2: Barania Góra → Turbacz' },
+  ]
 
   const tabs = [
     { id: 'map', label: '🗺️ Mapa', icon: '🗺️' },
@@ -15,16 +23,37 @@ function App() {
     { id: 'nutrition', label: '🍲 Żywienie', icon: '🍲' },
   ]
 
+  const etapData = activeEtap === 'etap1' 
+    ? { title: ETAP1_TITLE, subtitle: ETAP1_SUBTITLE, date: ETAP1_DATE, distance: ETAP1_DISTANCE, elevation: ETAP1_ELEVATION, time: ETAP1_TIME }
+    : { title: ETAP2_TITLE, subtitle: ETAP2_SUBTITLE, date: ETAP2_DATE, distance: ETAP2_DISTANCE, elevation: ETAP2_ELEVATION, time: ETAP2_TIME }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black">
       {/* Header */}
       <header className="bg-black bg-opacity-50 border-b border-gray-700 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-6">
+          {/* Selektor Etapu */}
+          <div className="mb-4 flex gap-2">
+            {etaps.map(etap => (
+              <button
+                key={etap.id}
+                onClick={() => setActiveEtap(etap.id)}
+                className={`px-4 py-2 rounded-lg font-semibold transition whitespace-nowrap ${
+                  activeEtap === etap.id
+                    ? 'bg-red-600 text-white shadow-lg'
+                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                }`}
+              >
+                {etap.label}
+              </button>
+            ))}
+          </div>
+
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h1 className="text-4xl font-bold text-red-500">GSB Etap 1</h1>
-              <p className="text-gray-400 text-sm mt-1">Główny Szlak Beskidzki: Ustroń → Hala Boracza</p>
-              <p className="text-gray-500 text-xs mt-1">20–22 Marca 2026 | 53 km | +2300 m wzniesienia</p>
+              <h1 className="text-4xl font-bold text-red-500">{etapData.title}</h1>
+              <p className="text-gray-400 text-sm mt-1">{etapData.subtitle}</p>
+              <p className="text-gray-500 text-xs mt-1">{etapData.date} | {etapData.distance} | {etapData.elevation}</p>
             </div>
             <div className="text-right">
               <div className="text-2xl">🏔️</div>
@@ -57,7 +86,7 @@ function App() {
           <div className="space-y-6">
             <div className="section-card">
               <h2 className="text-2xl font-bold text-red-500 mb-4">Interaktywna Mapa Trasy</h2>
-              <RouteMap />
+              <RouteMap activeEtap={activeEtap} />
               <div className="mt-4 text-sm text-gray-400">
                 <p><strong>Legenda:</strong> 🟢 Start | 🔴 Schroniska | 🟡 Szczyty | 🔵 Parking</p>
               </div>
@@ -97,7 +126,7 @@ function App() {
       {/* Footer */}
       <footer className="bg-black bg-opacity-50 border-t border-gray-700 mt-12">
         <div className="max-w-7xl mx-auto px-4 py-6 text-center text-gray-500 text-sm">
-          <p>GSB Etap 1 Plan | Przygotowany przez Manus AI | Marzec 2026</p>
+          <p>GSB Plan | Przygotowany przez Manus AI | Marzec 2026</p>
           <p className="mt-2">Powodzenia na szlaku! 🏔️</p>
         </div>
       </footer>
