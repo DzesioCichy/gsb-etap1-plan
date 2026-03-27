@@ -4,7 +4,7 @@ import RouteMap from './components/RouteMap'
 import Schedule from './components/Schedule'
 import Logistics from './components/Logistics'
 import Nutrition from './components/Nutrition'
-import { ETAP1_TITLE, ETAP1_SUBTITLE, ETAP1_DATE, ETAP1_DISTANCE, ETAP1_ELEVATION, ETAP1_TIME } from './data/routeData'
+import { ETAP1_TITLE, ETAP1_SUBTITLE, ETAP1_DATE, ETAP1_DISTANCE, ETAP1_ELEVATION, ETAP1_TIME } from './data/routeData_metadata'
 import { ETAP2_TITLE, ETAP2_SUBTITLE, ETAP2_DATE, ETAP2_DISTANCE, ETAP2_ELEVATION, ETAP2_TIME } from './data/etap2Data'
 
 function App() {
