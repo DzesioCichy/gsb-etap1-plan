@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black">
       {/* Header */}
-      <header className="bg-black bg-opacity-50 border-b border-gray-700 sticky top-0 z-50">
+      <header className="bg-black bg-opacity-50 border-b border-gray-700 sticky top-0 z-[9999]">
         <div className="max-w-7xl mx-auto px-4 py-6">
           {/* Selektor Etapu */}
           <div className="mb-4 flex gap-2">
