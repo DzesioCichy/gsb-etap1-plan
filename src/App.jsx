@@ -5,7 +5,7 @@ import Schedule from './components/Schedule'
 import Logistics from './components/Logistics'
 import Nutrition from './components/Nutrition'
 import { ETAP1_TITLE, ETAP1_SUBTITLE, ETAP1_DATE, ETAP1_DISTANCE, ETAP1_ELEVATION, ETAP1_TIME } from './data/routeData_metadata'
-import { ETAP2_TITLE, ETAP2_SUBTITLE, ETAP2_DATE, ETAP2_DISTANCE, ETAP2_ELEVATION, ETAP2_TIME } from './data/etap2Data'
+import { ETAP2_METADATA } from './data/etap2Data'
 
 function App() {
   const [activeTab, setActiveTab] = useState('map')
@@ -20,7 +20,7 @@ function App() {
 
   const etapData = activeEtap === 'etap1' 
     ? { title: ETAP1_TITLE, subtitle: ETAP1_SUBTITLE, date: ETAP1_DATE, distance: ETAP1_DISTANCE, elevation: ETAP1_ELEVATION, time: ETAP1_TIME }
-    : { title: ETAP2_TITLE, subtitle: ETAP2_SUBTITLE, date: ETAP2_DATE, distance: ETAP2_DISTANCE, elevation: ETAP2_ELEVATION, time: ETAP2_TIME }
+    : { title: ETAP2_METADATA.title, subtitle: ETAP2_METADATA.subtitle, date: ETAP2_METADATA.date, distance: `${ETAP2_METADATA.distance} km`, elevation: `+${ETAP2_METADATA.elevation} m wzniesienia`, time: ETAP2_METADATA.time }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black">
