@@ -5,7 +5,16 @@ import Schedule from './components/Schedule'
 import Logistics from './components/Logistics'
 import Nutrition from './components/Nutrition'
 import { ETAP1_TITLE, ETAP1_SUBTITLE, ETAP1_DATE, ETAP1_DISTANCE, ETAP1_ELEVATION, ETAP1_TIME } from './data/routeData_metadata'
-import { ETAP2_METADATA } from './data/etap2Data'
+
+// Etap 2 data inline - avoid import issues
+const ETAP2_DATA = {
+  title: 'GSB Etap 2 - Barania Góra → Schronisko PTTK Turbacz',
+  subtitle: 'Barania Góra → Schronisko PTTK Turbacz',
+  date: '23 Marca 2026',
+  distance: 60,
+  elevation: 1200,
+  time: '~20-22 godzin'
+}
 
 function App() {
   const [activeTab, setActiveTab] = useState('map')
@@ -20,7 +29,7 @@ function App() {
 
   const etapData = activeEtap === 'etap1' 
     ? { title: ETAP1_TITLE, subtitle: ETAP1_SUBTITLE, date: ETAP1_DATE, distance: ETAP1_DISTANCE, elevation: ETAP1_ELEVATION, time: ETAP1_TIME }
-    : { title: ETAP2_METADATA.title, subtitle: ETAP2_METADATA.subtitle, date: ETAP2_METADATA.date, distance: `${ETAP2_METADATA.distance} km`, elevation: `+${ETAP2_METADATA.elevation} m wzniesienia`, time: ETAP2_METADATA.time }
+    : { title: ETAP2_DATA.title, subtitle: ETAP2_DATA.subtitle, date: ETAP2_DATA.date, distance: `${ETAP2_DATA.distance} km`, elevation: `+${ETAP2_DATA.elevation} m wzniesienia`, time: ETAP2_DATA.time }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black">
@@ -137,4 +146,3 @@ function App() {
 }
 
 export default App
-// Force rebuild: Fri Mar 27 19:30:31 EDT 2026
