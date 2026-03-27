@@ -5136,13 +5136,6 @@ export const ETAP2_KEY_POINTS = [
   { lat: 49.602996, lon: 19.114220, name: 'Parking Węgierska Górka', type: 'parking', height: 416, km: -8 }
 ];
 
-export const ETAP2_TITLE = 'GSB Etap 2 - Barania Góra → Schronisko PTTK Turbacz';
-export const ETAP2_SUBTITLE = 'Barania Góra → Schronisko PTTK Turbacz';
-export const ETAP2_DATE = '23 Marca 2026';
-export const ETAP2_DISTANCE = '60 km';
-export const ETAP2_ELEVATION = '+1200 m wzniesienia';
-export const ETAP2_TIME = '~20-22 godzin';
-
 export const ETAP2_METADATA = {
   title: 'GSB Etap 2',
   subtitle: 'Barania Góra → Schronisko PTTK Turbacz',
