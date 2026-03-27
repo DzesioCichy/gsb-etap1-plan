@@ -151,9 +151,9 @@ export default function RouteMap({ activeEtap = 'etap1' }) {
       const keyPoints = keyPointsData.map(point => {
         // Punkty, które nie powinny być snapowane
         const noSnapConditions = 
-          (point.name && point.name.includes('Parking')) ||
+          (point.type === 'parking') ||
           (point.name && point.name.includes('Hala Boracza')) ||
-          (point.name && point.name.includes('Turbacz') && point.type === 'shelter');
+          (point.name && point.name.includes('Schronisko PTTK Turbacz'));
 
         if (noSnapConditions) {
           return {
@@ -180,7 +180,8 @@ export default function RouteMap({ activeEtap = 'etap1' }) {
         };
       });
 
-      console.log(`✓ Markery snapowane do trasy (${activeEtap === 'etap1' ? 'Etap 1' : 'Etap 2'}):`, keyPoints);
+        console.log(`✓ Markery snapowane do trasy (${activeEtap === 'etap1' ? 'Etap 1' : 'Etap 2'}):`, keyPoints);
+        console.log(`✓ Liczba markerów: ${keyPoints.length}`);
 
       // Dodanie markerów dla punktów kluczowych
       keyPoints.forEach(point => {
@@ -204,6 +205,9 @@ export default function RouteMap({ activeEtap = 'etap1' }) {
       if (Array.isArray(routeCoordinates) && routeCoordinates.length > 0) {
         const bounds = L.latLngBounds(routeCoordinates);
         map.fitBounds(bounds, { padding: [50, 50] });
+        console.log(`✓ Mapa przybliżona do granic trasy (${routeCoordinates.length} punktów)`);
+      } else {
+        console.error(`❌ routeCoordinates jest puste lub nie jest tablicą!`, routeCoordinates);
       }
 
       mapInstanceRef.current = map;
