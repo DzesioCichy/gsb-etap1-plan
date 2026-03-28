@@ -10,7 +10,9 @@ import { ETAP1_TITLE, ETAP1_SUBTITLE, ETAP1_DATE, ETAP1_DISTANCE, ETAP1_ELEVATIO
 const ETAP2_DATA = {
   title: 'GSB Etap 2 - Barania Góra → Schronisko PTTK Turbacz',
   subtitle: 'Barania Góra → Schronisko PTTK Turbacz',
-  date: '23 Marca 2026',
+  date: '20-21 Maja 2026',
+  startTime: '2:00 nad ranem (sobota)',
+  endTime: 'wieczorem (niedziela)',
   distance: 60,
   elevation: 1200,
   time: '~20-22 godzin'
