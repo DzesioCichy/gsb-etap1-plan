@@ -5124,14 +5124,26 @@ export const ETAP2_ROUTE_COORDINATES = [
   [49.542933, 20.112499],
   [49.54295, 20.112593],
   [49.543006, 20.112708],
-  [49.543037, 20.112823]
+  [49.543037, 20.112823],
+  [49.543038, 20.113050],
+  [49.543040, 20.113280],
+  [49.543045, 20.113510],
+  [49.543050, 20.113740],
+  [49.543052, 20.113970],
+  [49.543055, 20.114200],
+  [49.543056, 20.114430],
+  [49.543056, 20.114660],
+  [49.543056, 20.115000],
+  [49.543056, 20.115300],
+  [49.543056, 20.115600],
+  [49.543056, 20.116667]
 ];
 
 export const ETAP2_KEY_POINTS = [
   { lat: 49.611443, lon: 19.010590, name: 'Barania Góra (Start Etap 2)', type: 'peak', height: 1220, km: 0 },
   { lat: 49.573, lon: 19.529, name: 'Babia Góra', type: 'peak', height: 1725, km: 15 },
-  { lat: 49.527, lon: 19.284, name: 'Pilsko', type: 'peak', height: 1557, km: 27 },
-  { lat: 49.549, lon: 20.111, name: 'Turbacz', type: 'peak', height: 1629, km: 45 },
+  { lat: 49.52797, lon: 19.31680, name: 'Pilsko', type: 'peak', height: 1557, km: 27 },
+  { lat: 49.54324, lon: 20.11166, name: 'Turbacz', type: 'peak', height: 1310, km: 45 },
   { lat: 49.543056, lon: 20.116667, name: 'Schronisko PTTK Turbacz (Koniec Etap 2)', type: 'shelter', height: 1050, km: 60 },
   { lat: 49.602996, lon: 19.114220, name: 'Parking Węgierska Górka', type: 'parking', height: 416, km: -8 }
 ];
@@ -5139,7 +5151,9 @@ export const ETAP2_KEY_POINTS = [
 export const ETAP2_METADATA = {
   title: 'GSB Etap 2',
   subtitle: 'Barania Góra → Schronisko PTTK Turbacz',
-  date: '23 Marca 2026',
+  date: '20-21 Maja 2026',
+  startTime: '2:00 nad ranem (sobota)',
+  endTime: 'wieczorem (niedziela)',
   distance: 60,
   elevation: 1200,
   time: '~20-22 godzin',
