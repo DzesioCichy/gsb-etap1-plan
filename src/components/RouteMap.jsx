@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { ROUTE_COORDINATES } from '../data/routeData';
@@ -29,22 +29,23 @@ const findClosestPointOnTrack = (poiLat, poiLon, trackCoordinates) => {
   let closestPoint = null;
   let closestIndex = 0;
 
-  trackCoordinates.forEach((point, index) => {
-    if (!Array.isArray(point) || point.length < 2) return;
-    const distance = haversineDistance(poiLat, poiLon, point[0], point[1]);
+  for (let i = 0; i < trackCoordinates.length; i++) {
+    const [lat, lon] = trackCoordinates[i];
+    const distance = haversineDistance(poiLat, poiLon, lat, lon);
+
     if (distance < minDistance) {
       minDistance = distance;
-      closestPoint = point;
-      closestIndex = index;
+      closestPoint = [lat, lon];
+      closestIndex = i;
     }
-  });
+  }
 
   return { point: closestPoint || [poiLat, poiLon], distance: minDistance, index: closestIndex };
 };
 
-// Etap 1 key points - hardcoded
+// Etap 1 key points (defined locally)
 const ETAP1_KEY_POINTS = [
-  { lat: 49.7210, lon: 18.8155, name: 'Ustroń Zdrój (Start)', type: 'start', km: 0 },
+  { lat: 49.721079, lon: 18.815629, name: 'Ustroń (Start)', type: 'start', height: 300, km: 0 },
   { lat: 49.7247, lon: 18.8566, name: 'Równica', type: 'peak', km: 4.5 },
   { lat: 49.6788, lon: 18.8047, name: 'Czantoria Wielka', type: 'peak', km: 12 },
   { lat: 49.605, lon: 18.824, name: 'Schronisko Stożek', type: 'shelter', km: 21 },
@@ -70,6 +71,11 @@ export default function RouteMap({ activeEtap = 'etap1' }) {
       let keyPointsData = [];
       let mapCenter = [49.5, 19.0];
       let mapZoom = 11;
+
+      console.log(`🔍 RouteMap: activeEtap=${activeEtap}`);
+      console.log(`🔍 ROUTE_COORDINATES: ${ROUTE_COORDINATES ? ROUTE_COORDINATES.length : 0} punktów`);
+      console.log(`🔍 ETAP2_ROUTE_COORDINATES: ${ETAP2_ROUTE_COORDINATES ? ETAP2_ROUTE_COORDINATES.length : 0} punktów`);
+      console.log(`🔍 ETAP2_KEY_POINTS: ${ETAP2_KEY_POINTS ? ETAP2_KEY_POINTS.length : 0} markerów`);
 
       if (activeEtap === 'etap1') {
         routeCoordinates = ROUTE_COORDINATES || [];
@@ -220,14 +226,18 @@ export default function RouteMap({ activeEtap = 'etap1' }) {
     } catch (error) {
       console.error('❌ Błąd w RouteMap:', error);
     }
-
-    return () => {
-      if (mapInstanceRef.current) {
-        mapInstanceRef.current.remove();
-      }
-    };
   }, [activeEtap]);
 
-  return <div ref={mapRef} style={{ width: '100%', height: '500px', borderRadius: '8px', border: '2px solid #dc2626' }} />;
+  return (
+    <div
+      ref={mapRef}
+      style={{
+        width: '100%',
+        height: '500px',
+        borderRadius: '8px',
+        overflow: 'hidden',
+        border: '2px solid #dc2626'
+      }}
+    />
+  );
 }
-// Rebuild timestamp: 1774655715
