@@ -13,8 +13,8 @@ const ETAP2_DATA = {
   date: '20-21 Maja 2026',
   startTime: '2:00 nad ranem (sobota)',
   endTime: 'wieczorem (niedziela)',
-  distance: 60,
-  elevation: 1200,
+  distance: 114,
+  elevation: 1313,
   time: '~20-22 godzin'
 }
 
