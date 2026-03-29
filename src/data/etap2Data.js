@@ -5147,7 +5147,13 @@ export const ETAP2_KEY_POINTS = [
   { lat: 49.611443, lon: 19.010590, name: 'Barania Góra (Start Etap 2)', type: 'peak', height: 1220, km: 0 },
   { lat: 49.573, lon: 19.529, name: 'Babia Góra', type: 'peak', height: 1725, km: 15 },
   { lat: 49.52783, lon: 19.31804, name: 'Pilsko', type: 'peak', height: 1557, km: 27 },
+  { lat: 49.536405, lon: 19.233886, name: 'Schronisko na Hali Rysianka', type: 'shelter', height: 1290, km: 13 },
+  { lat: 49.57407, lon: 19.39572, name: 'Beskid Krzyżowski / Beskyd', type: 'peak', height: 923, km: 20 },
+  { lat: 49.6120569, lon: 19.4449934, name: 'Mędralowa Zachodnia', type: 'peak', height: 1026, km: 25 },
+  { lat: 49.627222, lon: 19.655, name: 'Okrąglica', type: 'peak', height: 1239, km: 35 },
   { lat: 49.54297, lon: 20.11153, name: 'Turbacz', type: 'peak', height: 1310, km: 45 },
+  { lat: 49.55866, lon: 20.035468, name: 'Schronisko PTTK na Starych Wierchach', type: 'shelter', height: 968, km: 50 },
+  { lat: 49.559681, lon: 20.073239, name: 'Obidowiec', type: 'peak', height: 1106, km: 52 },
   { lat: 49.543694, lon: 20.118465, name: 'Schronisko PTTK Turbacz (Koniec Etap 2)', type: 'shelter', height: 1050, km: 60 },
   { lat: 49.602996, lon: 19.114220, name: 'Parking Węgierska Górka', type: 'parking', height: 416, km: -8 }
 ];
