@@ -48,7 +48,7 @@ export default function Schedule() {
       },
       {
         day: 'Sobota, 23 Maja',
-        title: 'Główny Etap: Węgierska Górka - Markowe Szczawiny',
+        title: 'Główny Etap: Węgierska Górka - Schronisko Rysianka',
         events: [
           { time: '02:00', activity: 'START ETAP 2 - Wyjazd z parkingu', location: 'Węgierska Górka (0 km)', km: 0 },
           { time: '02:00-04:30', activity: 'Nocna wędrówka do Baranii Góry', location: 'Węgierska Górka → Barania Góra', km: 8 },
@@ -63,17 +63,17 @@ export default function Schedule() {
           { time: '16:00-16:30', activity: 'Przerwa, woda', location: 'Beskid Krzyżowski (923 m)', km: 49 },
           { time: '16:30-18:00', activity: 'Wędrówka do Mędralowej Zachodniej', location: 'Beskid Krzyżowski → Mędralowa Zachodnia', km: 71 },
           { time: '18:00-18:30', activity: 'Kolacja, woda', location: 'Mędralowa Zachodnia (1026 m)', km: 71 },
-          { time: '18:30-20:30', activity: 'Wędrówka do Markowych Szczawin', location: 'Mędralowa → Markowe Szczawiny', km: 55 },
-          { time: '20:30+', activity: 'NOCLEG SOBOTA - Schronisko PTTK Markowe Szczawiny', location: 'Schronisko PTTK Markowe Szczawiny (1180 m)', km: 55 },
+          { time: '18:30-20:30', activity: 'Wędrówka do Schroniska Rysianka', location: 'Mędralowa → Schronisko Rysianka', km: 55 },
+          { time: '20:30+', activity: 'NOCLEG SOBOTA - Schronisko Rysianka', location: 'Schronisko Rysianka (1290 m)', km: 55 },
         ]
       },
       {
         day: 'Niedziela, 24 Maja',
-        title: 'Główny Etap: Markowe Szczawiny - Schronisko PTTK Turbacz',
+        title: 'Główny Etap: Schronisko Rysianka - Schronisko PTTK Turbacz',
         events: [
-          { time: '08:00', activity: 'Śniadanie w schronisku', location: 'Schronisko PTTK Markowe Szczawiny' },
-          { time: '09:00', activity: 'START - Wyjazd ze schroniska', location: 'Markowe Szczawiny (0 km)', km: 0 },
-          { time: '09:00-11:00', activity: 'Wędrówka do Okrąglicy', location: 'Markowe Szczawiny → Okrąglica', km: 26 },
+          { time: '08:00', activity: 'Śniadanie w schronisku', location: 'Schronisko Rysianka' },
+          { time: '09:00', activity: 'START - Wyjazd ze schroniska', location: 'Schronisko Rysianka (0 km)', km: 0 },
+          { time: '09:00-11:00', activity: 'Wędrówka do Okrąglicy', location: 'Schronisko Rysianka → Okrąglica', km: 26 },
           { time: '11:00-11:30', activity: 'Przerwa, woda', location: 'Okrąglica (1239 m)', km: 26 },
           { time: '11:30-13:30', activity: 'Wędrówka przez Turbacz', location: 'Okrąglica → Turbacz', km: 36 },
           { time: '13:30-14:30', activity: 'Obiad, odpoczynek', location: 'Turbacz (1310 m)', km: 36 },

@@ -135,7 +135,7 @@ export default function Nutrition() {
         ]
       },
       saturday: {
-        title: 'Sobota, 23 Maja – Węgierska Górka → Markowe Szczawiny (~55 km)',
+        title: 'Sobota, 23 Maja – Węgierska Górka → Schronisko Rysianka (~55 km)',
         meals: [
           {
             time: '02:00',
@@ -222,7 +222,7 @@ export default function Nutrition() {
           },
           {
             time: '20:30+',
-            name: 'Nocleg w Schronisku Markowe Szczawiny (~55 km)',
+            name: 'Nocleg w Schronisku Rysianka (~55 km)',
             items: [
               '1x Kolacja schroniskowa (jeśli dostępna)',
               'lub 1x Baton energetyczny',
@@ -235,11 +235,11 @@ export default function Nutrition() {
         ]
       },
       sunday: {
-        title: 'Niedziela, 24 Maja – Markowe Szczawiny → Schronisko PTTK Turbacz (~59 km)',
+        title: 'Niedziela, 24 Maja – Schronisko Rysianka → Schronisko PTTK Turbacz (~59 km)',
         meals: [
           {
             time: '08:00',
-            name: 'Śniadanie (Schronisko Markowe Szczawiny)',
+            name: 'Śniadanie (Schronisko Rysianka)',
             items: [
               '1x Śniadanie schroniskowe',
               '1x Kawa/herbata',

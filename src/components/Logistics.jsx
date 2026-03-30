@@ -50,12 +50,12 @@ export default function Logistics() {
         advantages: 'Darmowy parking, blisko szlaku, spokojny, dobry sygnał. ⚠️ Dzwony o 6:00'
       },
       shelter1: {
-        title: '🏔️ Schronisko PTTK Markowe Szczawiny (Nocleg Sobota)',
-        address: '34-222 Zawoja, Babiogórski Park Narodowy',
+        title: '🏔️ Schronisko Rysianka (Nocleg Sobota)',
+        address: 'Hala Rysianka, Babiogórski Park Narodowy',
         phone1: '+48 33 472 83 04',
         phone2: '+48 604 527 417',
-        email: 'markowe.szczawiny@op.pl',
-        warning: 'Zarezerwuj nocleg z wyprzedzeniem! Rezerwacja online dostępna. Wysokość: 1180 m n.p.m. Nowoczesne schronisko z pokojami.'
+        email: 'rysianka@pttk.pl',
+        warning: 'Zarezerwuj nocleg z wyprzedzeniem! Schronisko na trasie GSB. Wysokość: 1290 m n.p.m. Tradycyjne schronisko górskie.'
       },
       shelter2: {
         title: '🏔️ Schronisko PTTK im. Władysława Orkana na Turbaczu (Nocleg Niedziela)',
@@ -74,7 +74,7 @@ export default function Logistics() {
         { from: '→ Schronisko Rysianka', to: '42 km' },
         { from: '→ Beskid Krzyżowski', to: '49 km' },
         { from: '→ Mędralowa Zachodnia', to: '71 km' },
-        { from: '→ Markowe Szczawiny (NOCLEG SOBOTA)', to: '55 km', highlight: true },
+        { from: '→ Schronisko Rysianka (NOCLEG SOBOTA)', to: '55 km', highlight: true },
         { from: '→ Okrąglica', to: '26 km (Niedziela)' },
         { from: '→ Turbacz', to: '36 km (Niedziela)' },
         { from: '→ Stare Wierchy', to: '46 km (Niedziela)' },
