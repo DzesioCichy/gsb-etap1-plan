@@ -135,7 +135,7 @@ export default function Nutrition() {
         ]
       },
       saturday: {
-        title: 'Sobota, 23 Maja – Główny Etap (60 km)',
+        title: 'Sobota, 23 Maja – Główny Etap (114 km)',
         meals: [
           {
             time: '02:00',
@@ -210,7 +210,7 @@ export default function Nutrition() {
           },
           {
             time: '18:00',
-            name: 'Kolacja na Mędralowej Zachodniej (~54 km)',
+            name: 'Kolacja na Mędralowej Zachodniej (~71 km)',
             items: [
               '1x Kanapka (chleb, ser, szynka)',
               '1x Suszone owoce (50g)',
@@ -222,9 +222,9 @@ export default function Nutrition() {
           },
           {
             time: '20:00',
-            name: 'Przerwa na Okrąglicy (~64 km)',
+            name: 'Przerwa na Okrąglicy (~81 km)',
             items: [
-              '1x Żel energetyczny',
+              '1x Žel energetyczny',
               '500 ml wody'
             ],
             calories: 100,
@@ -233,7 +233,7 @@ export default function Nutrition() {
           },
           {
             time: '22:30',
-            name: 'Przerwa na Starych Wierchach (~81 km)',
+            name: 'Przerwa na Turbaczu (~91 km)',
             items: [
               '1x Baton energetyczny',
               '1x Orzechy (30g)',
@@ -242,6 +242,29 @@ export default function Nutrition() {
             calories: 360,
             prep: 'Bez przygotowania',
             notes: 'Energia na ostatki'
+          },
+          {
+            time: '23:30',
+            name: 'Przerwa na Starych Wierchach (~101 km)',
+            items: [
+              '1x Baton energetyczny',
+              '1x Orzechy (30g)',
+              '500 ml wody'
+            ],
+            calories: 360,
+            prep: 'Bez przygotowania',
+            notes: 'Energia na ostatni odcinek'
+          },
+          {
+            time: '00:30',
+            name: 'Przerwa na Obidowcu (~103 km)',
+            items: [
+              '1x Žel energetyczny',
+              '500 ml wody'
+            ],
+            calories: 100,
+            prep: 'Bez przygotowania',
+            notes: 'Ostatnia energia przed schroniskiem'
           }
         ]
       },
