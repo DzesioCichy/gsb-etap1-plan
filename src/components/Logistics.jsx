@@ -49,14 +49,22 @@ export default function Logistics() {
         features: 'Utwardzony, ~10 miejsc, dobry sygnał GSM',
         advantages: 'Darmowy parking, blisko szlaku, spokojny, dobry sygnał. ⚠️ Dzwony o 6:00'
       },
-      shelter: {
-        title: '🏔️ Schronisko PTTK im. Władysława Orkana na Turbaczu',
+      shelter1: {
+        title: '🏔️ Schronisko PTTK Markowe Szczawiny (Nocleg Sobota)',
+        address: '34-222 Zawoja, Babiogórski Park Narodowy',
+        phone1: '+48 33 472 83 04',
+        phone2: '+48 604 527 417',
+        email: 'markowe.szczawiny@op.pl',
+        warning: 'Zarezerwuj nocleg z wyprzedzeniem! Rezerwacja online dostępna. Wysokość: 1180 m n.p.m. Nowoczesne schronisko z pokojami.'
+      },
+      shelter2: {
+        title: '🏔️ Schronisko PTTK im. Władysława Orkana na Turbaczu (Nocleg Niedziela)',
         address: '34-400 Nowy Targ, skr. pocztowa 102',
         phone1: '+48 602 118 889 (GŁÓWNY)',
         phone2: '+48 666 726 893 (Alternatywny)',
         phone3: '+48 18 266 77 80 (Stacjonarny)',
         email: 'schroniskoturbacz.pttk@gmail.com',
-        warning: 'Zarezerwuj nocleg z wyprzedzeniem! Poinformuj o przybyciu wieczorem/nocą (ok. 01:30). Pojemność: 110 miejsc + apartament 3-pokojowy.'
+        warning: 'Zarezerwuj nocleg z wyprzedzeniem! Poinformuj o przybyciu wieczorem (ok. 18:30). Pojemność: 110 miejsc + apartament 3-pokojowy.'
       },
       route: [
         { from: 'Węgierska Górka (Parking)', to: '0 km' },
@@ -66,11 +74,12 @@ export default function Logistics() {
         { from: '→ Schronisko Rysianka', to: '42 km' },
         { from: '→ Beskid Krzyżowski', to: '49 km' },
         { from: '→ Mędralowa Zachodnia', to: '71 km' },
-        { from: '→ Okrąglica', to: '81 km' },
-        { from: '→ Turbacz', to: '91 km' },
-        { from: '→ Stare Wierchy', to: '101 km' },
-        { from: '→ Obidowiec', to: '103 km' },
-        { from: '→ Schronisko PTTK Turbacz (NOCLEG)', to: '114 km', highlight: true },
+        { from: '→ Markowe Szczawiny (NOCLEG SOBOTA)', to: '55 km', highlight: true },
+        { from: '→ Okrąglica', to: '26 km (Niedziela)' },
+        { from: '→ Turbacz', to: '36 km (Niedziela)' },
+        { from: '→ Stare Wierchy', to: '46 km (Niedziela)' },
+        { from: '→ Obidowiec', to: '48 km (Niedziela)' },
+        { from: '→ Schronisko PTTK Turbacz (NOCLEG NIEDZIELA)', to: '59 km (Niedziela)', highlight: true },
       ],
       conditions: [
         'Wiosna - możliwe opady deszczu i śniegu',
@@ -131,29 +140,80 @@ export default function Logistics() {
         </div>
       </div>
 
-      {/* Schronisko */}
-      <div className="section-card">
-        <h3 className="text-xl font-bold text-red-400 mb-4">{data.shelter.title}</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <p className="text-sm text-gray-400 mb-2">Adres:</p>
-            <p className="font-bold">{data.shelter.address}</p>
+      {/* Schroniska */}
+      {activeEtap === 'etap1' ? (
+        <div className="section-card">
+          <h3 className="text-xl font-bold text-red-400 mb-4">{data.shelter.title}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <p className="text-sm text-gray-400 mb-2">Adres:</p>
+              <p className="font-bold">{data.shelter.address}</p>
+            </div>
+            <div>
+              <p className="text-sm text-gray-400 mb-2">Kontakt:</p>
+              <p className="font-bold text-green-400">{data.shelter.phone1}</p>
+              <p className="text-sm text-gray-300">{data.shelter.phone2}</p>
+              {data.shelter.phone3 && <p className="text-sm text-gray-300">{data.shelter.phone3}</p>}
+            </div>
           </div>
-          <div>
-            <p className="text-sm text-gray-400 mb-2">Kontakt:</p>
-            <p className="font-bold text-green-400">{data.shelter.phone1}</p>
-            <p className="text-sm text-gray-300">{data.shelter.phone2}</p>
-            {data.shelter.phone3 && <p className="text-sm text-gray-300">{data.shelter.phone3}</p>}
+          <div className="mt-4">
+            <p className="text-sm text-gray-400 mb-2">Email:</p>
+            <p className="font-bold text-blue-400">{data.shelter.email}</p>
+          </div>
+          <div className="mt-4 bg-black bg-opacity-40 p-3 rounded">
+            <p className="text-sm"><strong>⚠️ Ważne:</strong> {data.shelter.warning}</p>
           </div>
         </div>
-        <div className="mt-4">
-          <p className="text-sm text-gray-400 mb-2">Email:</p>
-          <p className="font-bold text-blue-400">{data.shelter.email}</p>
-        </div>
-        <div className="mt-4 bg-black bg-opacity-40 p-3 rounded">
-          <p className="text-sm"><strong>⚠️ Ważne:</strong> {data.shelter.warning}</p>
-        </div>
-      </div>
+      ) : (
+        <>
+          {/* Schronisko 1 - Sobota */}
+          <div className="section-card">
+            <h3 className="text-xl font-bold text-yellow-400 mb-4">{data.shelter1.title}</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <p className="text-sm text-gray-400 mb-2">Adres:</p>
+                <p className="font-bold">{data.shelter1.address}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-400 mb-2">Kontakt:</p>
+                <p className="font-bold text-green-400">{data.shelter1.phone1}</p>
+                <p className="text-sm text-gray-300">{data.shelter1.phone2}</p>
+              </div>
+            </div>
+            <div className="mt-4">
+              <p className="text-sm text-gray-400 mb-2">Email:</p>
+              <p className="font-bold text-blue-400">{data.shelter1.email}</p>
+            </div>
+            <div className="mt-4 bg-black bg-opacity-40 p-3 rounded">
+              <p className="text-sm"><strong>⚠️ Ważne:</strong> {data.shelter1.warning}</p>
+            </div>
+          </div>
+
+          {/* Schronisko 2 - Niedziela */}
+          <div className="section-card">
+            <h3 className="text-xl font-bold text-red-400 mb-4">{data.shelter2.title}</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <p className="text-sm text-gray-400 mb-2">Adres:</p>
+                <p className="font-bold">{data.shelter2.address}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-400 mb-2">Kontakt:</p>
+                <p className="font-bold text-green-400">{data.shelter2.phone1}</p>
+                <p className="text-sm text-gray-300">{data.shelter2.phone2}</p>
+                {data.shelter2.phone3 && <p className="text-sm text-gray-300">{data.shelter2.phone3}</p>}
+              </div>
+            </div>
+            <div className="mt-4">
+              <p className="text-sm text-gray-400 mb-2">Email:</p>
+              <p className="font-bold text-blue-400">{data.shelter2.email}</p>
+            </div>
+            <div className="mt-4 bg-black bg-opacity-40 p-3 rounded">
+              <p className="text-sm"><strong>⚠️ Ważne:</strong> {data.shelter2.warning}</p>
+            </div>
+          </div>
+        </>
+      )}
 
       {/* Trasa */}
       <div className="section-card">

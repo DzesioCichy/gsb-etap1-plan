@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react'
 
 export default function Nutrition() {
   const [activeEtap, setActiveEtap] = useState('etap1');
@@ -135,7 +135,7 @@ export default function Nutrition() {
         ]
       },
       saturday: {
-        title: 'Sobota, 23 Maja – Główny Etap (114 km)',
+        title: 'Sobota, 23 Maja – Węgierska Górka → Markowe Szczawiny (~55 km)',
         meals: [
           {
             time: '02:00',
@@ -218,34 +218,64 @@ export default function Nutrition() {
             ],
             calories: 730,
             prep: 'Bez przygotowania',
-            notes: 'Energia na noc'
+            notes: 'Energia na ostatni odcinek'
           },
           {
-            time: '20:00',
-            name: 'Przerwa na Okrąglicy (~81 km)',
+            time: '20:30+',
+            name: 'Nocleg w Schronisku Markowe Szczawiny (~55 km)',
             items: [
-              '1x Žel energetyczny',
-              '500 ml wody'
+              '1x Kolacja schroniskowa (jeśli dostępna)',
+              'lub 1x Baton energetyczny',
+              '1x Herbata/kawa'
             ],
-            calories: 100,
-            prep: 'Bez przygotowania',
-            notes: 'Szybka energia na finisz'
+            calories: 400,
+            prep: 'Schronisko',
+            notes: 'Regeneracja po 55 km'
+          }
+        ]
+      },
+      sunday: {
+        title: 'Niedziela, 24 Maja – Markowe Szczawiny → Schronisko PTTK Turbacz (~59 km)',
+        meals: [
+          {
+            time: '08:00',
+            name: 'Śniadanie (Schronisko Markowe Szczawiny)',
+            items: [
+              '1x Śniadanie schroniskowe',
+              '1x Kawa/herbata',
+              '1x Baton energetyczny'
+            ],
+            calories: 600,
+            prep: 'Schronisko',
+            notes: 'Pełne śniadanie, regeneracja'
           },
           {
-            time: '22:30',
-            name: 'Przerwa na Turbaczu (~91 km)',
+            time: '11:00',
+            name: 'Przerwa na Okrąglicy (~26 km)',
             items: [
               '1x Baton energetyczny',
-              '1x Orzechy (30g)',
+              '1x Żel energetyczny',
               '500 ml wody'
             ],
-            calories: 360,
+            calories: 280,
             prep: 'Bez przygotowania',
-            notes: 'Energia na ostatki'
+            notes: 'Szybka energia, hydratacja'
           },
           {
-            time: '23:30',
-            name: 'Przerwa na Starych Wierchach (~101 km)',
+            time: '13:30',
+            name: 'Obiad na Turbaczu (~36 km)',
+            items: [
+              '1x Kanapka (chleb, ser, szynka)',
+              '1x Suszone owoce (50g)',
+              '500 ml wody'
+            ],
+            calories: 730,
+            prep: 'Bez przygotowania',
+            notes: 'Energia na drugą połowę'
+          },
+          {
+            time: '16:00',
+            name: 'Przerwa na Starych Wierchach (~46 km)',
             items: [
               '1x Baton energetyczny',
               '1x Orzechy (30g)',
@@ -256,58 +286,17 @@ export default function Nutrition() {
             notes: 'Energia na ostatni odcinek'
           },
           {
-            time: '00:30',
-            name: 'Przerwa na Obidowcu (~103 km)',
+            time: '18:30+',
+            name: 'Kolacja w Schronisku PTTK Turbacz (~59 km)',
             items: [
-              '1x Žel energetyczny',
-              '500 ml wody'
-            ],
-            calories: 100,
-            prep: 'Bez przygotowania',
-            notes: 'Ostatnia energia przed schroniskiem'
-          }
-        ]
-      },
-      sunday: {
-        title: 'Niedziela, 24 Maja – Regeneracja w Schronisku',
-        meals: [
-          {
-            time: '08:00',
-            name: 'Śniadanie (Schronisko)',
-            items: [
-              '1x Jajecznica (2 jaja)',
-              '1x Chleb z masłem i dżemem',
-              '1x Kawa/herbata'
-            ],
-            calories: 660,
-            prep: 'Schronisko',
-            notes: 'Pełne śniadanie, regeneracja'
-          },
-          {
-            time: '14:00',
-            name: 'Obiad (Schronisko)',
-            items: [
-              '1x Bigos (400g)',
+              '1x Kolacja schroniskowa',
               '1x Chleb',
               '1x Kompot',
-              '1x Sernik (150g)'
+              '1x Deser'
             ],
-            calories: 1070,
+            calories: 800,
             prep: 'Schronisko',
-            notes: 'Pełny obiad, regeneracja'
-          },
-          {
-            time: '18:00',
-            name: 'Kolacja (Schronisko)',
-            items: [
-              '1x Kotlety mielone (200g)',
-              '1x Ziemniaki (200g)',
-              '1x Surówka',
-              '1x Kompot'
-            ],
-            calories: 730,
-            prep: 'Schronisko',
-            notes: 'Pełna kolacja, regeneracja'
+            notes: 'Regeneracja po 59 km – koniec Etap 2'
           }
         ]
       }
@@ -318,7 +307,8 @@ export default function Nutrition() {
   const dayOptions = Object.keys(etapData);
   
   // Ustaw domyślny dzień na sobotę jeśli istnieje
-  const validDay = dayOptions.includes(selectedDay) ? selectedDay : dayOptions[0];
+  const defaultDay = activeEtap === 'etap2' ? 'saturday' : 'friday';
+  const validDay = dayOptions.includes(selectedDay) ? selectedDay : (dayOptions.includes(defaultDay) ? defaultDay : dayOptions[0]);
   const selectedPlan = etapData[validDay];
 
   return (
@@ -349,116 +339,87 @@ export default function Nutrition() {
 
       {/* Selektor dni */}
       <div className="flex gap-2 flex-wrap">
-        {dayOptions.map(day => (
-          <button
-            key={day}
-            onClick={() => setSelectedDay(day)}
-            className={`px-4 py-2 rounded-lg font-semibold transition ${
-              validDay === day
-                ? 'bg-green-600 text-white'
-                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-            }`}
-          >
-            {day === 'friday' && '🍽️ Piątek'}
-            {day === 'saturday' && '🍽️ Sobota (Główny Etap)'}
-            {day === 'sunday' && '🍽️ Niedziela'}
-          </button>
-        ))}
+        {dayOptions.map(day => {
+          const dayLabels = {
+            friday: '🍽️ Piątek',
+            saturday: '🍽️ Sobota (Główny Etap)',
+            sunday: '🍽️ Niedziela'
+          };
+          return (
+            <button
+              key={day}
+              onClick={() => setSelectedDay(day)}
+              className={`px-4 py-2 rounded-lg font-semibold transition ${
+                validDay === day
+                  ? 'bg-green-600 text-white'
+                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+              }`}
+            >
+              {dayLabels[day] || day}
+            </button>
+          );
+        })}
       </div>
 
-      {/* Plan wybranego dnia */}
+      {/* Plan żywienia */}
       <div className="section-card">
-        <h3 className="text-xl font-bold text-green-400 mb-6">{selectedPlan.title}</h3>
-
-        <div className="space-y-6">
+        <h2 className="section-title">{selectedPlan.title}</h2>
+        
+        <div className="space-y-4">
           {selectedPlan.meals.map((meal, idx) => (
-            <div key={idx} className="bg-black bg-opacity-40 p-4 rounded-lg border border-gray-700">
+            <div key={idx} className="border border-gray-600 rounded-lg p-4 bg-gray-800 bg-opacity-50">
               <div className="flex justify-between items-start mb-3">
                 <div>
-                  <p className="font-bold text-yellow-400">{meal.time}</p>
-                  <p className="text-lg font-bold text-white mt-1">{meal.name}</p>
+                  <h3 className="text-lg font-bold text-green-400">{meal.name}</h3>
+                  <p className="text-sm text-gray-400">⏰ {meal.time}</p>
                 </div>
-                <span className="bg-green-600 text-white px-3 py-1 rounded text-sm font-bold">
+                <span className="bg-green-600 text-white px-3 py-1 rounded font-bold text-sm">
                   {meal.calories} kcal
                 </span>
               </div>
 
-              {/* Składniki */}
-              <div className="mb-3">
-                <p className="text-sm text-gray-400 mb-2"><strong>Składniki:</strong></p>
-                <ul className="text-sm text-gray-300 space-y-1 ml-4">
-                  {meal.items.map((item, itemIdx) => (
-                    <li key={itemIdx}>• {item}</li>
-                  ))}
-                </ul>
-              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <p className="text-sm text-gray-400 mb-2 font-semibold">Składniki:</p>
+                  <ul className="text-sm text-gray-300 space-y-1">
+                    {meal.items.map((item, itemIdx) => (
+                      <li key={itemIdx}>• {item}</li>
+                    ))}
+                  </ul>
+                </div>
 
-              {/* Przygotowanie */}
-              <div className="mb-3">
-                <p className="text-sm text-gray-400"><strong>Przygotowanie:</strong> {meal.prep}</p>
-              </div>
-
-              {/* Notatki */}
-              <div className="bg-blue-900 bg-opacity-30 p-2 rounded text-sm text-blue-300">
-                <strong>💡 Notatka:</strong> {meal.notes}
+                <div>
+                  <p className="text-sm text-gray-400 mb-2 font-semibold">Przygotowanie:</p>
+                  <p className="text-sm text-gray-300 mb-3">{meal.prep}</p>
+                  <p className="text-sm text-gray-400 mb-2 font-semibold">Notatka:</p>
+                  <p className="text-sm text-gray-300 italic">{meal.notes}</p>
+                </div>
               </div>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Podsumowanie kaloryczne */}
-      <div className="section-card">
-        <h3 className="text-lg font-bold text-orange-400 mb-4">📊 Podsumowanie Kaloryczne</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {activeEtap === 'etap1' ? (
-            <>
-              <div className="bg-black bg-opacity-40 p-4 rounded">
-                <p className="text-gray-400 text-sm">Piątek</p>
-                <p className="text-2xl font-bold text-green-400">800 kcal</p>
-              </div>
-              <div className="bg-black bg-opacity-40 p-4 rounded">
-                <p className="text-gray-400 text-sm">Sobota (53 km)</p>
-                <p className="text-2xl font-bold text-red-400">3200 kcal</p>
-                <p className="text-xs text-gray-500 mt-1">~60 kcal/km</p>
-              </div>
-              <div className="bg-black bg-opacity-40 p-4 rounded">
-                <p className="text-gray-400 text-sm">Niedziela</p>
-                <p className="text-2xl font-bold text-blue-400">700 kcal</p>
-              </div>
-            </>
-          ) : (
-            <>
-              <div className="bg-black bg-opacity-40 p-4 rounded">
-                <p className="text-gray-400 text-sm">Piątek</p>
-                <p className="text-2xl font-bold text-green-400">180 kcal</p>
-              </div>
-              <div className="bg-black bg-opacity-40 p-4 rounded">
-                <p className="text-gray-400 text-sm">Sobota (60 km)</p>
-                <p className="text-2xl font-bold text-red-400">3810 kcal</p>
-                <p className="text-xs text-gray-500 mt-1">~64 kcal/km</p>
-              </div>
-              <div className="bg-black bg-opacity-40 p-4 rounded">
-                <p className="text-gray-400 text-sm">Niedziela</p>
-                <p className="text-2xl font-bold text-blue-400">2460 kcal</p>
-              </div>
-            </>
-          )}
+        {/* Podsumowanie kaloryczne */}
+        <div className="mt-6 bg-black bg-opacity-40 p-4 rounded-lg">
+          <h3 className="font-bold text-green-400 mb-2">📊 Podsumowanie Kaloryczne</h3>
+          <p className="text-sm text-gray-300">
+            <strong>Razem:</strong> {selectedPlan.meals.reduce((sum, meal) => sum + meal.calories, 0)} kcal
+          </p>
+          <p className="text-sm text-gray-400 mt-2">
+            💡 Dla dystansu ~{validDay === 'saturday' && activeEtap === 'etap2' ? '55' : validDay === 'sunday' && activeEtap === 'etap2' ? '59' : '53'} km zalecane jest 2500-3500 kcal dziennie
+          </p>
         </div>
       </div>
 
-      {/* Porady */}
+      {/* Porady żywieniowe */}
       <div className="section-card">
-        <h3 className="text-lg font-bold text-purple-400 mb-4">⚠️ Eksperckie Porady Żywieniowe</h3>
+        <h3 className="text-xl font-bold text-yellow-400 mb-4">💡 Porady Żywieniowe</h3>
         <ul className="space-y-2 text-sm text-gray-300">
-          <li>✓ <strong>Hydratacja:</strong> Pij regularnie – co 30-45 minut po 200-300 ml wody.</li>
-          <li>✓ <strong>Elektrolity:</strong> Weź tabletki elektrolitowe (sól, potas) – pomogą w regeneracji.</li>
-          <li>✓ <strong>Kuchenka gazowa:</strong> Weź zapasowe kartridże. Jedna kartridża wystarczy na 2-3 posiłki.</li>
-          <li>✓ <strong>Krzesiwo:</strong> Idealne do szybkiego rozgrzania wody. Weź zapasowe.</li>
-          <li>✓ <strong>Liofilizaty:</strong> Leciutkie, trwałe, szybkie w przygotowaniu. Idealne dla trekkera.</li>
-          <li>✓ <strong>Puszki:</strong> Cięższe, ale bardziej sycące. Zabrać 2-3 na cały etap.</li>
-          <li>✓ <strong>Batony energetyczne:</strong> Weź co najmniej 6-8 sztuk na cały dzień.</li>
-          <li>✓ <strong>Żele energetyczne:</strong> Szybka energia – idealne na ostatnie kilometry.</li>
+          <li>✓ <strong>Hydratacja:</strong> Pij regularnie co 30-45 minut po 200-300 ml wody</li>
+          <li>✓ <strong>Elektrolityka:</strong> Wzbogacaj wodę elektrolitami (sól, potas) – unikaj odwodnienia</li>
+          <li>✓ <strong>Kuchenka gazowa:</strong> Wóż zapasowe kartridże. Jedna kartridża wystarczy na 2-3 posiłki</li>
+          <li>✓ <strong>Proteiny:</strong> Suchą energię – idealne na ostatnie kilometry</li>
+          <li>✓ <strong>Zele energetyczne:</strong> Szybka energia – idealne na ostatnie kilometry</li>
         </ul>
       </div>
     </div>

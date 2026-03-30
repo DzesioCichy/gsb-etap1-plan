@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react'
 
 export default function Schedule() {
   const [expandedDay, setExpandedDay] = useState(null);
@@ -48,7 +48,7 @@ export default function Schedule() {
       },
       {
         day: 'Sobota, 23 Maja',
-        title: 'Główny Etap: Barania Góra - Schronisko PTTK Turbacz',
+        title: 'Główny Etap: Węgierska Górka - Markowe Szczawiny',
         events: [
           { time: '02:00', activity: 'START ETAP 2 - Wyjazd z parkingu', location: 'Węgierska Górka (0 km)', km: 0 },
           { time: '02:00-04:30', activity: 'Nocna wędrówka do Baranii Góry', location: 'Węgierska Górka → Barania Góra', km: 8 },
@@ -63,24 +63,25 @@ export default function Schedule() {
           { time: '16:00-16:30', activity: 'Przerwa, woda', location: 'Beskid Krzyżowski (923 m)', km: 49 },
           { time: '16:30-18:00', activity: 'Wędrówka do Mędralowej Zachodniej', location: 'Beskid Krzyżowski → Mędralowa Zachodnia', km: 71 },
           { time: '18:00-18:30', activity: 'Kolacja, woda', location: 'Mędralowa Zachodnia (1026 m)', km: 71 },
-          { time: '18:30-20:00', activity: 'Wędrówka do Okrąglicy', location: 'Mędralowa → Okrąglica', km: 81 },
-          { time: '20:00-20:30', activity: 'Przerwa', location: 'Okrąglica (1239 m)', km: 81 },
-          { time: '20:30-22:00', activity: 'Wędrówka przez Turbacz', location: 'Okrąglica → Turbacz', km: 91 },
-          { time: '22:00-22:30', activity: 'Krótka przerwa', location: 'Turbacz (1310 m)', km: 91 },
-          { time: '22:30-23:30', activity: 'Nocna wędrówka do Starych Wierch', location: 'Turbacz → Schronisko Stare Wierchy', km: 101 },
-          { time: '23:30-00:30', activity: 'Nocna wędrówka przez Obidowiec', location: 'Stare Wierchy → Obidowiec', km: 103 },
-          { time: '00:30-01:30', activity: 'Finalna wędrówka do Schroniska', location: 'Obidowiec → Schronisko PTTK Turbacz', km: 114 },
-          { time: '01:30+', activity: 'KONIEC ETAPU 2 - Nocleg w schronisku', location: 'Schronisko PTTK Turbacz (1050 m)', km: 114 },
+          { time: '18:30-20:30', activity: 'Wędrówka do Markowych Szczawin', location: 'Mędralowa → Markowe Szczawiny', km: 55 },
+          { time: '20:30+', activity: 'NOCLEG SOBOTA - Schronisko PTTK Markowe Szczawiny', location: 'Schronisko PTTK Markowe Szczawiny (1180 m)', km: 55 },
         ]
       },
       {
         day: 'Niedziela, 24 Maja',
-        title: 'Regeneracja w Schronisku',
+        title: 'Główny Etap: Markowe Szczawiny - Schronisko PTTK Turbacz',
         events: [
-          { time: '08:00+', activity: 'Śniadanie', location: 'Schronisko PTTK Turbacz' },
-          { time: '09:00+', activity: 'Odpoczynek, czyszczenie', location: 'Schronisko PTTK Turbacz' },
-          { time: '14:00+', activity: 'Obiad', location: 'Schronisko PTTK Turbacz' },
-          { time: '18:00+', activity: 'Kolacja', location: 'Schronisko PTTK Turbacz' },
+          { time: '08:00', activity: 'Śniadanie w schronisku', location: 'Schronisko PTTK Markowe Szczawiny' },
+          { time: '09:00', activity: 'START - Wyjazd ze schroniska', location: 'Markowe Szczawiny (0 km)', km: 0 },
+          { time: '09:00-11:00', activity: 'Wędrówka do Okrąglicy', location: 'Markowe Szczawiny → Okrąglica', km: 26 },
+          { time: '11:00-11:30', activity: 'Przerwa, woda', location: 'Okrąglica (1239 m)', km: 26 },
+          { time: '11:30-13:30', activity: 'Wędrówka przez Turbacz', location: 'Okrąglica → Turbacz', km: 36 },
+          { time: '13:30-14:30', activity: 'Obiad, odpoczynek', location: 'Turbacz (1310 m)', km: 36 },
+          { time: '14:30-16:00', activity: 'Wędrówka do Starych Wierch', location: 'Turbacz → Schronisko Stare Wierchy', km: 46 },
+          { time: '16:00-16:30', activity: 'Przerwa, woda', location: 'Schronisko Stare Wierchy (968 m)', km: 46 },
+          { time: '16:30-17:30', activity: 'Wędrówka przez Obidowiec', location: 'Stare Wierchy → Obidowiec', km: 48 },
+          { time: '17:30-18:30', activity: 'Finalna wędrówka do Schroniska', location: 'Obidowiec → Schronisko PTTK Turbacz', km: 59 },
+          { time: '18:30+', activity: 'KONIEC ETAPU 2 - Nocleg w schronisku', location: 'Schronisko PTTK Turbacz (1310 m)', km: 59 },
         ]
       }
     ]
@@ -89,9 +90,9 @@ export default function Schedule() {
   const schedule = scheduleData[activeEtap];
 
   return (
-    <div className="space-y-4">
-      {/* Selektor etapów */}
-      <div className="flex gap-2 mb-6">
+    <div className="space-y-6">
+      {/* Selektor Etapu */}
+      <div className="flex gap-2 flex-wrap">
         <button
           onClick={() => setActiveEtap('etap1')}
           className={`px-4 py-2 rounded-lg font-semibold transition ${
@@ -114,37 +115,54 @@ export default function Schedule() {
         </button>
       </div>
 
-      {/* Harmonogram */}
-      {schedule.map((day, idx) => (
-        <div key={idx} className="section-card cursor-pointer hover:bg-opacity-10 transition" onClick={() => setExpandedDay(expandedDay === idx ? null : idx)}>
-          <div className="flex justify-between items-center">
-            <div>
-              <h3 className="text-lg font-bold text-red-500">{day.day}</h3>
-              <p className="text-sm text-gray-400">{day.title}</p>
-            </div>
-            <span className="text-2xl">{expandedDay === idx ? '▼' : '▶'}</span>
-          </div>
-          
-          {expandedDay === idx && (
-            <div className="mt-4 space-y-3 border-t border-gray-600 pt-4">
-              {day.events.map((event, eventIdx) => (
-                <div key={eventIdx} className="bg-black bg-opacity-30 p-3 rounded">
-                  <div className="flex justify-between items-start">
-                    <div className="flex-1">
-                      <p className="font-bold text-yellow-400">{event.time}</p>
-                      <p className="text-white mt-1">{event.activity}</p>
-                      <p className="text-sm text-gray-400 mt-1">📍 {event.location}</p>
-                    </div>
-                    {event.km !== undefined && (
-                      <span className="bg-red-600 text-white px-3 py-1 rounded text-sm font-bold ml-2">{event.km} km</span>
-                    )}
+      {/* Harmonogram Wyprawy */}
+      <div className="section-card">
+        <h2 className="section-title">Harmonogram Wyprawy</h2>
+        <p className="text-gray-400 text-sm mb-6">Kliknij na dzień, aby rozwinąć szczegóły</p>
+
+        <div className="space-y-3">
+          {schedule.map((day, index) => (
+            <div
+              key={index}
+              className="border border-gray-600 rounded-lg overflow-hidden bg-gray-800 bg-opacity-50"
+            >
+              <button
+                onClick={() => setExpandedDay(expandedDay === index ? null : index)}
+                className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-700 transition"
+              >
+                <div className="text-left">
+                  <h3 className="text-lg font-bold text-red-400">{day.day}</h3>
+                  <p className="text-gray-300 text-sm">{day.title}</p>
+                </div>
+                <span className="text-2xl">
+                  {expandedDay === index ? '▼' : '▶'}
+                </span>
+              </button>
+
+              {expandedDay === index && (
+                <div className="px-6 py-4 bg-gray-900 bg-opacity-50 border-t border-gray-600">
+                  <div className="space-y-3">
+                    {day.events.map((event, eventIndex) => (
+                      <div key={eventIndex} className="pb-3 border-b border-gray-700 last:border-b-0">
+                        <div className="flex justify-between items-start mb-1">
+                          <span className="font-bold text-yellow-400">{event.time}</span>
+                          {event.km !== undefined && (
+                            <span className="bg-red-600 text-white px-2 py-1 rounded text-xs font-bold">
+                              {event.km} km
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-gray-200 font-semibold">{event.activity}</p>
+                        <p className="text-gray-400 text-sm">📍 {event.location}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              ))}
+              )}
             </div>
-          )}
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }

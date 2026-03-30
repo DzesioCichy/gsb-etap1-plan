@@ -5155,17 +5155,18 @@ export const ETAP2_KEY_POINTS = [
   { lat: 49.55866, lon: 20.035468, name: 'Schronisko PTTK na Starych Wierchach', type: 'shelter', height: 968, km: 50 },
   { lat: 49.559681, lon: 20.073239, name: 'Obidowiec', type: 'peak', height: 1106, km: 52 },
   { lat: 49.543694, lon: 20.118465, name: 'Schronisko PTTK Turbacz (Koniec Etap 2)', type: 'shelter', height: 1050, km: 60 },
+  { lat: 49.61312, lon: 19.45333, name: 'Schronisko PTTK Markowe Szczawiny (Nocleg Sobota)', type: 'shelter', height: 1180, km: 55 },
   { lat: 49.602996, lon: 19.114220, name: 'Parking Węgierska Górka', type: 'parking', height: 416, km: -8 }
 ];
 
 export const ETAP2_METADATA = {
   title: 'GSB Etap 2',
   subtitle: 'Barania Góra → Schronisko PTTK Turbacz',
-  date: '20-21 Maja 2026',
+  date: '22-24 Maja 2026',
   startTime: '2:00 nad ranem (sobota)',
   endTime: 'wieczorem (niedziela)',
-  distance: 60,
-  elevation: 1200,
+  distance: 114,
+  elevation: 1313,
   time: '~20-22 godzin',
-  description: 'Drugi etap Głównego Szlaku Beskidzkiego. Przejście przez Babia Górę (1725m) i Pilsko (1557m) do Schroniska PTTK Turbacz.'
+  description: 'Drugi etap Głównego Szlaku Beskidzkiego podzielony na dwa dni. Sobota: Węgierska Górka → Markowe Szczawiny (~55km). Niedziela: Markowe Szczawiny → Turbacz (~59km).'
 };
