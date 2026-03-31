@@ -3,6 +3,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { ROUTE_COORDINATES } from '../data/routeData';
 import { ETAP2_ROUTE_COORDINATES, ETAP2_KEY_POINTS } from '../data/etap2Data';
+import { ETAP3_ROUTE, ETAP3_KEY_POINTS } from '../data/etap3Data';
 
 // Haversine distance calculator
 const haversineDistance = (lat1, lon1, lat2, lon2) => {
@@ -89,6 +90,12 @@ export default function RouteMap({ activeEtap = 'etap1' }) {
         mapZoom = 10;
         keyPointsData = ETAP2_KEY_POINTS || [];
         console.log(`📍 Etap 2: ${routeCoordinates.length} punktów GPS, ${keyPointsData.length} markerów`);
+      } else if (activeEtap === 'etap3') {
+        routeCoordinates = ETAP3_ROUTE || [];
+        mapCenter = [49.3, 21.0];
+        mapZoom = 9;
+        keyPointsData = ETAP3_KEY_POINTS || [];
+        console.log(`📍 Etap 3: ${routeCoordinates.length} punktów GPS, ${keyPointsData.length} markerów`);
       }
 
       // Inicjalizacja mapy
