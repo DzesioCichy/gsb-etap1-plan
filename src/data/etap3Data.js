@@ -15235,8 +15235,6 @@ export const ETAP3_ROUTE = [
   [49.066384, 22.680312],
 ];
 
-];
-
 export const ETAP3_DESCRIPTION = `
 Etap 3 - Ostatni etap Głównego Szlaku Beskidzkiego
 
