@@ -50,12 +50,12 @@ export default function Logistics() {
         advantages: 'Darmowy parking, blisko szlaku, spokojny, dobry sygnał. ⚠️ Dzwony o 6:00'
       },
       shelter1: {
-        title: '🏔️ Schronisko Rysianka (Nocleg Sobota)',
-        address: 'Hala Rysianka, Babiogórski Park Narodowy',
+        title: '🏔️ Schronisko PTTK Markowe Szczawiny (Nocleg Sobota)',
+        address: '34-222 Zawoja, Babiogórski Park Narodowy',
         phone1: '+48 33 472 83 04',
         phone2: '+48 604 527 417',
-        email: 'rysianka@pttk.pl',
-        warning: 'Zarezerwuj nocleg z wyprzedzeniem! Schronisko na trasie GSB. Wysokość: 1290 m n.p.m. Tradycyjne schronisko górskie.'
+        email: 'markowe.szczawiny@op.pl',
+        warning: 'Zarezerwuj nocleg z wyprzedzeniem! Rezerwacja online dostępna. Wysokość: 1180 m n.p.m. Zejście z szlaku: 16.85 km (0.30h) od Punktu B (49.56079, 19.23392).'
       },
       shelter2: {
         title: '🏔️ Schronisko PTTK im. Władysława Orkana na Turbaczu (Nocleg Niedziela)',
@@ -71,16 +71,15 @@ export default function Logistics() {
         { from: '→ Barania Góra', to: '8 km' },
         { from: '→ Babia Góra', to: '23 km' },
         { from: '→ Pilsko', to: '35 km' },
-        { from: '→ Schronisko Rysianka', to: '42 km' },
-        { from: '→ Beskid Krzyżowski', to: '49 km' },
-        { from: '→ Mędralowa Zachodnia', to: '71 km' },
-        { from: '→ Schronisko Rysianka (NOCLEG SOBOTA)', to: '55 km', highlight: true },
-        { from: '→ Okrąglica', to: '26 km (Niedziela)' },
-        { from: '→ Turbacz', to: '36 km (Niedziela)' },
-        { from: '→ Stare Wierchy', to: '46 km (Niedziela)' },
-        { from: '→ Obidowiec', to: '48 km (Niedziela)' },
-        { from: '→ Schronisko PTTK Turbacz (NOCLEG NIEDZIELA)', to: '59 km (Niedziela)', highlight: true },
-      ],
+        { from: '→ Punkt B (zejście na Markowe Szczawiny)', to: '42 km' },
+        { from: '→ Markowe Szczawiny (NOCLEG SOBOTA)', to: '42 km + 16.85 km zejście', highlight: true },
+        { from: '→ Punkt B (powrót na szlak)', to: '42 km (Niedziela)' },
+        { from: '→ Beskid Krzyżowski', to: '49 km (Niedziela)' },
+        { from: '→ Mędralowa Zachodnia', to: '71 km (Niedziela)' },
+        { from: '→ Okrąglica', to: '35 km (Niedziela)' },
+        { from: '→ Turbacz', to: '45 km (Niedziela)' },
+        { from: '→ Schronisko PTTK Turbacz (NOCLEG NIEDZIELA)', to: '45 km (Niedziela)', highlight: true },
+      ]
       conditions: [
         'Wiosna - możliwe opady deszczu i śniegu',
         'Nocna wędrówka - latarka czołowa OBOWIĄZKOWA',

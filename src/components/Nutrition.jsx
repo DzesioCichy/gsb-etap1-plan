@@ -135,7 +135,7 @@ export default function Nutrition() {
         ]
       },
       saturday: {
-        title: 'Sobota, 23 Maja – Węgierska Górka → Schronisko Rysianka (~55 km)',
+        title: 'Sobota, 23 Maja – Barania Góra → Punkt B → Markowe Szczawiny (~42 km)',
         meals: [
           {
             time: '02:00',
@@ -185,32 +185,8 @@ export default function Nutrition() {
             notes: 'Szybka energia, hydratacja'
           },
           {
-            time: '13:00',
-            name: 'Obiad w Schronisku Rysianka (~42 km)',
-            items: [
-              '1x Żurek (schronisko)',
-              '1x Chleb',
-              '1x Kompot (300ml)'
-            ],
-            calories: 670,
-            prep: 'Schronisko (bez przygotowania)',
-            notes: 'Pełny obiad, regeneracja'
-          },
-          {
-            time: '16:00',
-            name: 'Przerwa na Beskidzie Krzyżowskim (~49 km)',
-            items: [
-              '1x Baton energetyczny',
-              '1x Orzechy (30g)',
-              '500 ml wody'
-            ],
-            calories: 360,
-            prep: 'Bez przygotowania',
-            notes: 'Energia, białko'
-          },
-          {
-            time: '18:00',
-            name: 'Kolacja na Mędralowej Zachodniej (~71 km)',
+            time: '13:30',
+            name: 'Obiad na Punkcie B (~42 km)',
             items: [
               '1x Kanapka (chleb, ser, szynka)',
               '1x Suszone owoce (50g)',
@@ -218,28 +194,40 @@ export default function Nutrition() {
             ],
             calories: 730,
             prep: 'Bez przygotowania',
-            notes: 'Energia na ostatni odcinek'
+            notes: 'Pełny obiad, regeneracja przed zejściem'
           },
           {
-            time: '20:30+',
-            name: 'Nocleg w Schronisku Rysianka (~55 km)',
+            time: '14:30',
+            name: 'Zejście do Markowych Szczawin (0.30h - 16.85 km)',
             items: [
-              '1x Kolacja schroniskowa (jeśli dostępna)',
-              'lub 1x Baton energetyczny',
-              '1x Herbata/kawa'
+              '1x Baton energetyczny',
+              '1x Żel energetyczny',
+              '500 ml wody'
             ],
-            calories: 400,
+            calories: 280,
+            prep: 'Bez przygotowania',
+            notes: 'Energia na zejście'
+          },
+          {
+            time: '16:15+',
+            name: 'Nocleg w Schronisku Markowe Szczawiny',
+            items: [
+              '1x Kolacja schroniskowa',
+              '1x Herbata/kawa',
+              '1x Deser'
+            ],
+            calories: 600,
             prep: 'Schronisko',
-            notes: 'Regeneracja po 55 km'
+            notes: 'Regeneracja po 42 km szlaku + 16.85 km zejścia'
           }
         ]
       },
       sunday: {
-        title: 'Niedziela, 24 Maja – Schronisko Rysianka → Schronisko PTTK Turbacz (~59 km)',
+        title: 'Niedziela, 24 Maja – Markowe Szczawiny → Punkt B → Turbacz (~34 km)',
         meals: [
           {
             time: '08:00',
-            name: 'Śniadanie (Schronisko Rysianka)',
+            name: 'Śniadanie (Schronisko Markowe Szczawiny)',
             items: [
               '1x Śniadanie schroniskowe',
               '1x Kawa/herbata',
@@ -250,8 +238,8 @@ export default function Nutrition() {
             notes: 'Pełne śniadanie, regeneracja'
           },
           {
-            time: '11:00',
-            name: 'Przerwa na Okrąglicy (~26 km)',
+            time: '09:00',
+            name: 'Powrót na szlak (0.30h - 16.85 km)',
             items: [
               '1x Baton energetyczny',
               '1x Żel energetyczny',
@@ -259,11 +247,23 @@ export default function Nutrition() {
             ],
             calories: 280,
             prep: 'Bez przygotowania',
-            notes: 'Szybka energia, hydratacja'
+            notes: 'Energia na powrót na szlak'
           },
           {
-            time: '13:30',
-            name: 'Obiad na Turbaczu (~36 km)',
+            time: '11:15',
+            name: 'Przerwa na Punkcie B (~0 km)',
+            items: [
+              '1x Baton energetyczny',
+              '1x Orzechy (30g)',
+              '500 ml wody'
+            ],
+            calories: 360,
+            prep: 'Bez przygotowania',
+            notes: 'Energia, hydratacja'
+          },
+          {
+            time: '13:45',
+            name: 'Obiad na Beskidzie Krzyżowskim (~7 km)',
             items: [
               '1x Kanapka (chleb, ser, szynka)',
               '1x Suszone owoce (50g)',
@@ -274,8 +274,20 @@ export default function Nutrition() {
             notes: 'Energia na drugą połowę'
           },
           {
-            time: '16:00',
-            name: 'Przerwa na Starych Wierchach (~46 km)',
+            time: '16:15',
+            name: 'Przerwa na Mędralowej Zachodniej (~29 km)',
+            items: [
+              '1x Baton energetyczny',
+              '1x Żel energetyczny',
+              '500 ml wody'
+            ],
+            calories: 280,
+            prep: 'Bez przygotowania',
+            notes: 'Szybka energia, hydratacja'
+          },
+          {
+            time: '17:45',
+            name: 'Przerwa na Okrąglicy (~35 km)',
             items: [
               '1x Baton energetyczny',
               '1x Orzechy (30g)',
@@ -286,8 +298,8 @@ export default function Nutrition() {
             notes: 'Energia na ostatni odcinek'
           },
           {
-            time: '18:30+',
-            name: 'Kolacja w Schronisku PTTK Turbacz (~59 km)',
+            time: '19:15+',
+            name: 'Kolacja w Schronisku PTTK Turbacz (~45 km)',
             items: [
               '1x Kolacja schroniskowa',
               '1x Chleb',
@@ -296,7 +308,7 @@ export default function Nutrition() {
             ],
             calories: 800,
             prep: 'Schronisko',
-            notes: 'Regeneracja po 59 km – koniec Etap 2'
+            notes: 'Regeneracja po 34 km szlaku + 16.85 km powrotu – koniec Etap 2'
           }
         ]
       }

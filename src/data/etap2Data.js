@@ -5165,8 +5165,8 @@ export const ETAP2_METADATA = {
   date: '22-24 Maja 2026',
   startTime: '2:00 nad ranem (sobota)',
   endTime: 'wieczorem (niedziela)',
-  distance: 114,
+  distance: 76,
   elevation: 1313,
-  time: '~20-22 godzin',
-  description: 'Drugi etap Głównego Szlaku Beskidzkiego podzielony na dwa dni. Sobota: Węgierska Górka → Schronisko Rysianka (~55km). Niedziela: Schronisko Rysianka → Turbacz (~59km).'
+  time: '~18-20 godzin',
+  description: 'Drugi etap Głównego Szlaku Beskidzkiego podzielony na dwa dni. Sobota: Barania Góra → Punkt B (14.89km) → Markowe Szczawiny (16.85km). Niedziela: Markowe Szczawiny → Punkt B (16.85km) → Turbacz (27.56km). Łącznie: 76.16km (42.45km szlaku + 33.71km zejście/powrót).
 };

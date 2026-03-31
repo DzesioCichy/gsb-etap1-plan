@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 export default function Schedule() {
   const [expandedDay, setExpandedDay] = useState(null);
@@ -48,7 +48,7 @@ export default function Schedule() {
       },
       {
         day: 'Sobota, 23 Maja',
-        title: 'Główny Etap: Węgierska Górka - Schronisko Rysianka',
+        title: 'Główny Etap: Barania Góra - Punkt B - Markowe Szczawiny',
         events: [
           { time: '02:00', activity: 'START ETAP 2 - Wyjazd z parkingu', location: 'Węgierska Górka (0 km)', km: 0 },
           { time: '02:00-04:30', activity: 'Nocna wędrówka do Baranii Góry', location: 'Węgierska Górka → Barania Góra', km: 8 },
@@ -57,31 +57,28 @@ export default function Schedule() {
           { time: '08:00-08:30', activity: 'Śniadanie, woda', location: 'Babia Góra (1725 m)', km: 23 },
           { time: '08:30-11:00', activity: 'Wędrówka do Pilska', location: 'Babia Góra → Pilsko', km: 35 },
           { time: '11:00-11:30', activity: 'Drugie śniadanie', location: 'Pilsko (1557 m)', km: 35 },
-          { time: '11:30-13:00', activity: 'Wędrówka do Schroniska Rysianka', location: 'Pilsko → Schronisko Rysianka', km: 42 },
-          { time: '13:00-14:00', activity: 'Obiad, odpoczynek', location: 'Schronisko Rysianka (1290 m)', km: 42 },
-          { time: '14:00-16:00', activity: 'Wędrówka przez Beskid Krzyżowski', location: 'Rysianka → Beskid Krzyżowski', km: 49 },
-          { time: '16:00-16:30', activity: 'Przerwa, woda', location: 'Beskid Krzyżowski (923 m)', km: 49 },
-          { time: '16:30-18:00', activity: 'Wędrówka do Mędralowej Zachodniej', location: 'Beskid Krzyżowski → Mędralowa Zachodnia', km: 71 },
-          { time: '18:00-18:30', activity: 'Kolacja, woda', location: 'Mędralowa Zachodnia (1026 m)', km: 71 },
-          { time: '18:30-20:30', activity: 'Wędrówka do Schroniska Rysianka', location: 'Mędralowa → Schronisko Rysianka', km: 55 },
-          { time: '20:30+', activity: 'NOCLEG SOBOTA - Schronisko Rysianka', location: 'Schronisko Rysianka (1290 m)', km: 55 },
+          { time: '11:30-13:30', activity: 'Wędrówka do Punktu B (zejście na Markowe Szczawiny)', location: 'Pilsko → Punkt B (szlak GSB)', km: 42 },
+          { time: '13:30-14:30', activity: 'Obiad, odpoczynek', location: 'Punkt B (1063 m) - na szlaku GSB', km: 42 },
+          { time: '14:30-16:15', activity: 'Zejście do Markowych Szczawin (0.30h)', location: 'Punkt B → Markowe Szczawiny', km: 42 },
+          { time: '16:15+', activity: 'NOCLEG SOBOTA - Markowe Szczawiny', location: 'Schronisko PTTK Markowe Szczawiny (1180 m)', km: 42 },
         ]
       },
       {
         day: 'Niedziela, 24 Maja',
-        title: 'Główny Etap: Schronisko Rysianka - Schronisko PTTK Turbacz',
+        title: 'Główny Etap: Markowe Szczawiny - Punkt B - Turbacz',
         events: [
-          { time: '08:00', activity: 'Śniadanie w schronisku', location: 'Schronisko Rysianka' },
-          { time: '09:00', activity: 'START - Wyjazd ze schroniska', location: 'Schronisko Rysianka (0 km)', km: 0 },
-          { time: '09:00-11:00', activity: 'Wędrówka do Okrąglicy', location: 'Schronisko Rysianka → Okrąglica', km: 26 },
-          { time: '11:00-11:30', activity: 'Przerwa, woda', location: 'Okrąglica (1239 m)', km: 26 },
-          { time: '11:30-13:30', activity: 'Wędrówka przez Turbacz', location: 'Okrąglica → Turbacz', km: 36 },
-          { time: '13:30-14:30', activity: 'Obiad, odpoczynek', location: 'Turbacz (1310 m)', km: 36 },
-          { time: '14:30-16:00', activity: 'Wędrówka do Starych Wierch', location: 'Turbacz → Schronisko Stare Wierchy', km: 46 },
-          { time: '16:00-16:30', activity: 'Przerwa, woda', location: 'Schronisko Stare Wierchy (968 m)', km: 46 },
-          { time: '16:30-17:30', activity: 'Wędrówka przez Obidowiec', location: 'Stare Wierchy → Obidowiec', km: 48 },
-          { time: '17:30-18:30', activity: 'Finalna wędrówka do Schroniska', location: 'Obidowiec → Schronisko PTTK Turbacz', km: 59 },
-          { time: '18:30+', activity: 'KONIEC ETAPU 2 - Nocleg w schronisku', location: 'Schronisko PTTK Turbacz (1310 m)', km: 59 },
+          { time: '08:00', activity: 'Śniadanie w schronisku', location: 'Schronisko PTTK Markowe Szczawiny' },
+          { time: '09:00', activity: 'START - Wyjazd ze schroniska', location: 'Markowe Szczawiny (0 km)', km: 0 },
+          { time: '09:00-10:45', activity: 'Powrót na szlak GSB (0.30h)', location: 'Markowe Szczawiny → Punkt B', km: 0 },
+          { time: '10:45-11:15', activity: 'Przerwa, woda', location: 'Punkt B (1063 m) - na szlaku GSB', km: 0 },
+          { time: '11:15-13:45', activity: 'Wędrówka przez Beskid Krzyżowski', location: 'Punkt B → Beskid Krzyżowski', km: 7 },
+          { time: '13:45-14:45', activity: 'Obiad, odpoczynek', location: 'Beskid Krzyżowski (923 m)', km: 7 },
+          { time: '14:45-16:15', activity: 'Wędrówka do Mędralowej Zachodniej', location: 'Beskid Krzyżowski → Mędralowa Zachodnia', km: 29 },
+          { time: '16:15-16:45', activity: 'Przerwa, woda', location: 'Mędralowa Zachodnia (1026 m)', km: 29 },
+          { time: '16:45-17:45', activity: 'Wędrówka do Okrąglicy', location: 'Mędralowa → Okrąglica', km: 35 },
+          { time: '17:45-18:15', activity: 'Przerwa przed finałem', location: 'Okrąglica (1239 m)', km: 35 },
+          { time: '18:15-19:15', activity: 'Finalna wędrówka do Turbacza', location: 'Okrąglica → Turbacz', km: 45 },
+          { time: '19:15+', activity: 'KONIEC ETAPU 2 - Nocleg w schronisku', location: 'Schronisko PTTK Turbacz (1310 m)', km: 45 },
         ]
       }
     ]
@@ -98,7 +95,7 @@ export default function Schedule() {
           className={`px-4 py-2 rounded-lg font-semibold transition ${
             activeEtap === 'etap1'
               ? 'bg-red-600 text-white'
-              : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+              : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
           }`}
         >
           📍 Etap 1: Ustroń → Hala Boracza
@@ -108,60 +105,44 @@ export default function Schedule() {
           className={`px-4 py-2 rounded-lg font-semibold transition ${
             activeEtap === 'etap2'
               ? 'bg-red-600 text-white'
-              : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+              : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
           }`}
         >
           📍 Etap 2: Barania Góra → Turbacz
         </button>
       </div>
 
-      {/* Harmonogram Wyprawy */}
-      <div className="section-card">
-        <h2 className="section-title">Harmonogram Wyprawy</h2>
-        <p className="text-gray-400 text-sm mb-6">Kliknij na dzień, aby rozwinąć szczegóły</p>
-
-        <div className="space-y-3">
-          {schedule.map((day, index) => (
-            <div
-              key={index}
-              className="border border-gray-600 rounded-lg overflow-hidden bg-gray-800 bg-opacity-50"
+      {/* Harmonogram */}
+      <div className="space-y-4">
+        {schedule.map((day, index) => (
+          <div key={index} className="border border-gray-300 rounded-lg overflow-hidden">
+            <button
+              onClick={() => setExpandedDay(expandedDay === index ? null : index)}
+              className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 text-left font-bold hover:from-blue-600 hover:to-blue-700 transition flex justify-between items-center"
             >
-              <button
-                onClick={() => setExpandedDay(expandedDay === index ? null : index)}
-                className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-700 transition"
-              >
-                <div className="text-left">
-                  <h3 className="text-lg font-bold text-red-400">{day.day}</h3>
-                  <p className="text-gray-300 text-sm">{day.title}</p>
-                </div>
-                <span className="text-2xl">
-                  {expandedDay === index ? '▼' : '▶'}
-                </span>
-              </button>
+              <div>
+                <div className="text-lg">{day.day}</div>
+                <div className="text-sm opacity-90">{day.title}</div>
+              </div>
+              <span className="text-2xl">{expandedDay === index ? '▼' : '▶'}</span>
+            </button>
 
-              {expandedDay === index && (
-                <div className="px-6 py-4 bg-gray-900 bg-opacity-50 border-t border-gray-600">
-                  <div className="space-y-3">
-                    {day.events.map((event, eventIndex) => (
-                      <div key={eventIndex} className="pb-3 border-b border-gray-700 last:border-b-0">
-                        <div className="flex justify-between items-start mb-1">
-                          <span className="font-bold text-yellow-400">{event.time}</span>
-                          {event.km !== undefined && (
-                            <span className="bg-red-600 text-white px-2 py-1 rounded text-xs font-bold">
-                              {event.km} km
-                            </span>
-                          )}
-                        </div>
-                        <p className="text-gray-200 font-semibold">{event.activity}</p>
-                        <p className="text-gray-400 text-sm">📍 {event.location}</p>
-                      </div>
-                    ))}
+            {expandedDay === index && (
+              <div className="p-4 bg-gray-50 space-y-3">
+                {day.events.map((event, eventIndex) => (
+                  <div key={eventIndex} className="border-l-4 border-blue-500 pl-4 py-2">
+                    <div className="font-semibold text-blue-700">{event.time}</div>
+                    <div className="text-gray-800">{event.activity}</div>
+                    <div className="text-sm text-gray-600">{event.location}</div>
+                    {event.km !== undefined && (
+                      <div className="text-xs text-gray-500 mt-1">📍 {event.km} km</div>
+                    )}
                   </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   );
