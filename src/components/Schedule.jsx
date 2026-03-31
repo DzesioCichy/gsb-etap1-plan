@@ -81,6 +81,53 @@ export default function Schedule() {
           { time: '19:15+', activity: 'KONIEC ETAPU 2 - Nocleg w schronisku', location: 'Schronisko PTTK Turbacz (1310 m)', km: 45 },
         ]
       }
+    ],
+    etap3: [
+      {
+        day: 'Poniedziałek, 25 Maja',
+        title: 'Logistyka w Turbaczu',
+        events: [
+          { time: '08:00', activity: 'Śniadanie w schronisku', location: 'Schronisko PTTK Turbacz' },
+          { time: '09:00', activity: 'Przygotowanie sprzętu', location: 'Turbacz' },
+          { time: '10:00', activity: 'Ostatnia weryfikacja ekwipunku', location: 'Turbacz' },
+        ]
+      },
+      {
+        day: 'Wtorek, 26 Maja',
+        title: 'Główny Etap: Turbacz - Polonina Wetlińska (Bieszczady)',
+        events: [
+          { time: '11:00', activity: 'START ETAP 3 - Wyjazd ze schroniska', location: 'Schronisko PTTK Turbacz (0 km)', km: 0 },
+          { time: '11:00-14:00', activity: 'Wędrówka przez Gorce', location: 'Turbacz → Polana Gabrowska → Kiczora', km: 12 },
+          { time: '14:00-15:00', activity: 'Obiad, odpoczynek', location: 'Kiczora (1155 m)', km: 12 },
+          { time: '15:00-18:00', activity: 'Wędrówka przez Beskid Sądecki', location: 'Kiczora → Przełęcz Krzyżowa', km: 76 },
+          { time: '18:00-19:00', activity: 'Kolacja, przygotowanie do nocy', location: 'Schronisko PTTK Komańcza (218 km)', km: 218 },
+          { time: '19:00+', activity: 'NOCLEG WTOREK - Schronisko PTTK Komańcza', location: 'Schronisko PTTK Komańcza (750 m)', km: 218 },
+        ]
+      },
+      {
+        day: 'Środa, 27 Maja',
+        title: 'Główny Etap: Komańcza - Polonina Wetlińska',
+        events: [
+          { time: '08:00', activity: 'Śniadanie w schronisku', location: 'Schronisko PTTK Komańcza' },
+          { time: '09:00', activity: 'START - Wyjazd ze schroniska', location: 'Komańcza (0 km)', km: 0 },
+          { time: '09:00-13:00', activity: 'Wędrówka przez Beskid Niski', location: 'Komańcza → Przełęcz Żebrak', km: 65 },
+          { time: '13:00-14:00', activity: 'Obiad, odpoczynek', location: 'Przełęcz Żebrak (850 m)', km: 65 },
+          { time: '14:00-18:00', activity: 'Wędrówka do Bieszczad', location: 'Przełęcz Żebrak → Polonina Wetlińska', km: 100 },
+          { time: '18:00+', activity: 'NOCLEG ŚRODA - Schronisko PTTK Polonina Wetlińska', location: 'Schronisko PTTK na Poloninie Wetlińskiej (1220 m)', km: 100 },
+        ]
+      },
+      {
+        day: 'Czwartek, 28 Maja',
+        title: 'Finał: Polonina Wetlińska - Wołosate (KONIEC GSB)',
+        events: [
+          { time: '08:00', activity: 'Śniadanie w schronisku', location: 'Schronisko PTTK Polonina Wetlińska' },
+          { time: '09:00', activity: 'START - Finalna wędrówka', location: 'Polonina Wetlińska (0 km)', km: 0 },
+          { time: '09:00-12:00', activity: 'Wędrówka przez Poloninę Caryńską', location: 'Polonina Wetlińska → Ustryki Górne', km: 30 },
+          { time: '12:00-13:00', activity: 'Obiad, ostatnia przerwa', location: 'Hotel PTTK Ustryki Górne (295 km)', km: 30 },
+          { time: '13:00-17:00', activity: 'Finalna wędrówka do Wołosate', location: 'Ustryki Górne → Wołosate', km: 45 },
+          { time: '17:00+', activity: '🎉 KONIEC GŁÓWNEGO SZLAKU BESKIDZKIEGO - Wołosate', location: 'Wołosate - koniec szlaku (724 m)', km: 45 },
+        ]
+      }
     ]
   };
 
@@ -109,6 +156,16 @@ export default function Schedule() {
           }`}
         >
           📍 Etap 2: Barania Góra → Turbacz
+        </button>
+        <button
+          onClick={() => setActiveEtap('etap3')}
+          className={`px-4 py-2 rounded-lg font-semibold transition ${
+            activeEtap === 'etap3'
+              ? 'bg-red-600 text-white'
+              : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+          }`}
+        >
+          🏔️ Etap 3: Turbacz → Wołosate
         </button>
       </div>
 

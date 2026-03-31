@@ -88,6 +88,58 @@ export default function Logistics() {
         'Woda: 2-3 litry dziennie',
         'Temperatury: 0-10°C (zależy od pogody)'
       ]
+    },
+    etap3: {
+      parking: {
+        title: '🅿️ Parking Darmowy w Turbaczu',
+        location: 'Przy Schronisku PTTK na Turbaczu',
+        description: 'Parking dla turystów',
+        gps: '49.543356, 20.117992',
+        features: 'Utwardzony, ~15 miejsc, dobry sygnał GSM',
+        advantages: 'Darmowy, blisko schroniska, dostęp 24/7'
+      },
+      shelter1: {
+        title: '🏔️ Schronisko PTTK Komańcza (Nocleg Wtorek)',
+        address: '34-700 Komańcza',
+        phone1: '+48 18 262 60 08',
+        phone2: '+48 602 118 889',
+        email: 'schroniskokomancza@pttk.pl',
+        warning: 'Zarezerwuj nocleg z wyprzedzeniem! Wysokość: 750 m n.p.m. Pojemność: 80 miejsc. Wtorek - 26 maja.'
+      },
+      shelter2: {
+        title: '🏔️ Schronisko PTTK na Poloninie Wetlińskiej (Nocleg Środa)',
+        address: '38-700 Ustryki Górne',
+        phone1: '+48 13 467 60 12',
+        phone2: '+48 602 118 889',
+        email: 'poloninawetlinska@pttk.pl',
+        warning: 'Zarezerwuj nocleg z wyprzedzeniem! Wysokość: 1220 m n.p.m. Pojemność: 60 miejsc. Środa - 27 maja.'
+      },
+      route: [
+        { from: 'Schronisko PTTK Turbacz (Start)', to: '0 km' },
+        { from: '→ Polana Gabrowska', to: '3.8 km' },
+        { from: '→ Kiczora', to: '7.6 km' },
+        { from: '→ Przełęcz Knurowska', to: '11.4 km' },
+        { from: '→ Schronisko PTTK Przehyba', to: '45.6 km' },
+        { from: '→ Schronisko PTTK Hala Labowska', to: '60.8 km' },
+        { from: '→ Przełęcz Krzyżowa', to: '76.0 km' },
+        { from: '→ Krynica Zdrój', to: '79.8 km' },
+        { from: '→ Schronisko PTTK Komańcza (NOCLEG WTOREK)', to: '218.4 km', highlight: true },
+        { from: '→ Przełęcz Żebrak', to: '241.3 km' },
+        { from: '→ Polonina Wetlińska', to: '279.6 km' },
+        { from: '→ Schronisko PTTK Polonina Wetlińska (NOCLEG ŚRODA)', to: '283.5 km', highlight: true },
+        { from: '→ Hotel PTTK Ustryki Górne', to: '295.0 km' },
+        { from: '→ Przełęcz Bukowska', to: '314.1 km' },
+        { from: '→ Wołosate (KONIEC GSB)', to: '317.9 km', highlight: true },
+      ],
+      conditions: [
+        'Wiosna/Lato - możliwe opady deszczu',
+        'Latarka czołowa - niezbędna (długie etapy)',
+        'Mapa i GPS - obowiązkowe',
+        'Woda: 3-4 litry dziennie',
+        'Temperatury: 5-15°C (zależy od pogody)',
+        'Ostatni etap - najdłuższy i najtrudniejszy!',
+        'Przygotuj się mentalnie na finał!'
+      ]
     }
   };
 
@@ -116,6 +168,16 @@ export default function Logistics() {
           }`}
         >
           📍 Etap 2: Barania Góra → Turbacz
+        </button>
+        <button
+          onClick={() => setActiveEtap('etap3')}
+          className={`px-4 py-2 rounded-lg font-semibold transition ${
+            activeEtap === 'etap3'
+              ? 'bg-blue-600 text-white'
+              : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+          }`}
+        >
+          🏔️ Etap 3: Turbacz → Wołosate
         </button>
       </div>
 
