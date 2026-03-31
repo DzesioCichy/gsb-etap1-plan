@@ -18,6 +18,18 @@ const ETAP2_DATA = {
   time: '~20-22 godzin'
 }
 
+// Etap 3 data inline
+const ETAP3_DATA = {
+  title: 'GSB Etap 3 - Schronisko PTTK Turbacz → Wołosate',
+  subtitle: 'Schronisko PTTK Turbacz → Wołosate',
+  date: '25-28 Maja 2026',
+  startTime: 'poniedziałek rano',
+  endTime: 'czwartek wieczorem',
+  distance: '317.95 km',
+  elevation: '+6500 m wzniesienia',
+  time: '~85 godzin (3-4 dni)'
+}
+
 function App() {
   const [activeTab, setActiveTab] = useState('map')
   const [activeEtap, setActiveEtap] = useState('etap1')
@@ -31,7 +43,9 @@ function App() {
 
   const etapData = activeEtap === 'etap1' 
     ? { title: ETAP1_TITLE, subtitle: ETAP1_SUBTITLE, date: ETAP1_DATE, distance: ETAP1_DISTANCE, elevation: ETAP1_ELEVATION, time: ETAP1_TIME }
-    : { title: ETAP2_DATA.title, subtitle: ETAP2_DATA.subtitle, date: ETAP2_DATA.date, distance: `${ETAP2_DATA.distance} km`, elevation: `+${ETAP2_DATA.elevation} m wzniesienia`, time: ETAP2_DATA.time }
+    : activeEtap === 'etap2'
+    ? { title: ETAP2_DATA.title, subtitle: ETAP2_DATA.subtitle, date: ETAP2_DATA.date, distance: `${ETAP2_DATA.distance} km`, elevation: `+${ETAP2_DATA.elevation} m wzniesienia`, time: ETAP2_DATA.time }
+    : { title: ETAP3_DATA.title, subtitle: ETAP3_DATA.subtitle, date: ETAP3_DATA.date, distance: ETAP3_DATA.distance, elevation: ETAP3_DATA.elevation, time: ETAP3_DATA.time }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black">
@@ -92,6 +106,16 @@ function App() {
             }`}
           >
             📍 Etap 2: Barania Góra → Turbacz
+          </button>
+          <button
+            onClick={() => setActiveEtap('etap3')}
+            className={`px-6 py-3 rounded-lg font-bold transition ${
+              activeEtap === 'etap3'
+                ? 'bg-red-600 text-white shadow-lg'
+                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+            }`}
+          >
+            📍 Etap 3: Turbacz → Wołosate
           </button>
         </div>
 
