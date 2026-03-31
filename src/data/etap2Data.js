@@ -5168,5 +5168,5 @@ export const ETAP2_METADATA = {
   distance: 76,
   elevation: 1313,
   time: '~18-20 godzin',
-  description: 'Drugi etap Głównego Szlaku Beskidzkiego podzielony na dwa dni. Sobota: Barania Góra → Punkt B (14.89km) → Markowe Szczawiny (16.85km). Niedziela: Markowe Szczawiny → Punkt B (16.85km) → Turbacz (27.56km). Łącznie: 76.16km (42.45km szlaku + 33.71km zejście/powrót).
+  description: 'Drugi etap Głównego Szlaku Beskidzkiego podzielony na dwa dni. Sobota: Barania Góra → Punkt B (14.89km) → Markowe Szczawiny (16.85km). Niedziela: Markowe Szczawiny → Punkt B (16.85km) → Turbacz (27.56km). Łącznie: 76.16km (42.45km szlaku + 33.71km zejście/powrót).'
 };

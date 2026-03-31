@@ -79,7 +79,7 @@ export default function Logistics() {
         { from: '→ Okrąglica', to: '35 km (Niedziela)' },
         { from: '→ Turbacz', to: '45 km (Niedziela)' },
         { from: '→ Schronisko PTTK Turbacz (NOCLEG NIEDZIELA)', to: '45 km (Niedziela)', highlight: true },
-      ]
+      ],
       conditions: [
         'Wiosna - możliwe opady deszczu i śniegu',
         'Nocna wędrówka - latarka czołowa OBOWIĄZKOWA',
