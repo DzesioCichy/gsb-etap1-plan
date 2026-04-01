@@ -25,7 +25,7 @@ const ETAP3_DATA = {
   date: '25-28 Maja 2026',
   startTime: 'poniedziałek rano',
   endTime: 'czwartek wieczorem',
-  distance: '317.95 km',
+  distance: '322.1 km',
   elevation: '+6500 m wzniesienia',
   time: '~85 godzin (3-4 dni)'
 }
