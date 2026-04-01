@@ -111,8 +111,8 @@ export const ETAP3_KEY_POINTS = [
   {
     id: 11,
     name: 'Kościenko nad Dunajcem',
-    lat: 49.475842,
-    lon: 20.581469,
+    lat: 49.465895,
+    lon: 20.575395,
     elevation: 1030.0,
     distance_from_start: 38.30722891566265,
     percent_of_route: 12.0
@@ -120,8 +120,8 @@ export const ETAP3_KEY_POINTS = [
   {
     id: 12,
     name: 'Dzwonkówka',
-    lat: 49.480317,
-    lon: 20.620019,
+    lat: 49.476129,
+    lon: 20.662876,
     elevation: 642.0,
     distance_from_start: 42.137951807228916,
     percent_of_route: 13.3
@@ -129,8 +129,8 @@ export const ETAP3_KEY_POINTS = [
   {
     id: 13,
     name: 'Schronisko PTTK Przehyba',
-    lat: 49.489328,
-    lon: 20.664534,
+    lat: 49.483769,
+    lon: 20.668692,
     elevation: 381.0,
     distance_from_start: 45.968674698795176,
     percent_of_route: 14.5
@@ -174,8 +174,8 @@ export const ETAP3_KEY_POINTS = [
   {
     id: 18,
     name: 'Runek',
-    lat: 49.455933,
-    lon: 20.856257,
+    lat: 49.435627,
+    lon: 20.875908,
     elevation: 932.0,
     distance_from_start: 65.12228915662651,
     percent_of_route: 20.5
@@ -183,8 +183,8 @@ export const ETAP3_KEY_POINTS = [
   {
     id: 19,
     name: 'Przyslop',
-    lat: 49.437769,
-    lon: 20.88954,
+    lat: 49.4132,
+    lon: 20.938991,
     elevation: 985.0,
     distance_from_start: 68.95301204819278,
     percent_of_route: 21.7
@@ -291,8 +291,8 @@ export const ETAP3_KEY_POINTS = [
   {
     id: 31,
     name: 'Lug',
-    lat: 49.55706,
-    lon: 21.363758,
+    lat: 49.552029,
+    lon: 21.435339,
     elevation: 624.0,
     distance_from_start: 114.92168674698794,
     percent_of_route: 36.1
@@ -300,8 +300,8 @@ export const ETAP3_KEY_POINTS = [
   {
     id: 32,
     name: 'Popowe Wierchy',
-    lat: 49.548012,
-    lon: 21.407713,
+    lat: 49.537194,
+    lon: 21.479586,
     elevation: 487.0,
     distance_from_start: 118.75240963855421,
     percent_of_route: 37.3
@@ -390,8 +390,8 @@ export const ETAP3_KEY_POINTS = [
   {
     id: 42,
     name: 'Chyrowa',
-    lat: 49.544846,
-    lon: 21.767082,
+    lat: 49.546972,
+    lon: 21.840625,
     elevation: 446.0,
     distance_from_start: 157.05963855421686,
     percent_of_route: 49.4
