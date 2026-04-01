@@ -192,8 +192,8 @@ export const ETAP3_KEY_POINTS = [
   {
     id: 20,
     name: 'Bukowinka',
-    lat: 49.422263,
-    lon: 20.936252,
+    lat: 49.4132,
+    lon: 20.938991,
     elevation: 767.0,
     distance_from_start: 72.78373493975903,
     percent_of_route: 22.9
@@ -309,8 +309,8 @@ export const ETAP3_KEY_POINTS = [
   {
     id: 33,
     name: 'Krzywa',
-    lat: 49.528683,
-    lon: 21.472648,
+    lat: 49.537194,
+    lon: 21.479586,
     elevation: 428.0,
     distance_from_start: 122.58313253012048,
     percent_of_route: 38.6
@@ -399,8 +399,8 @@ export const ETAP3_KEY_POINTS = [
   {
     id: 43,
     name: 'Grzbiet Chyrowej',
-    lat: 49.541925,
-    lon: 21.834823,
+    lat: 49.546972,
+    lon: 21.840625,
     elevation: 425.0,
     distance_from_start: 160.89036144578313,
     percent_of_route: 50.6
