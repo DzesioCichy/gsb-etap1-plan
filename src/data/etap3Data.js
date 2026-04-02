@@ -780,7 +780,7 @@ export const ETAP3_KEY_POINTS = [
     lat: 49.138844,
     lon: 22.601763,
     elevation: 1276.0,
-    distance_from_start: 0,
+    distance_from_start: 281.06,
   },
   {
     id: 86,
@@ -788,7 +788,7 @@ export const ETAP3_KEY_POINTS = [
     lat: 49.186669,
     lon: 22.475778,
     elevation: 1155.0,
-    distance_from_start: 0,
+    distance_from_start: 261.32,
   },
   {
     id: 87,
@@ -796,7 +796,7 @@ export const ETAP3_KEY_POINTS = [
     lat: 49.119278,
     lon: 22.63778,
     elevation: 964.0,
-    distance_from_start: 0,
+    distance_from_start: 287.03,
   },
   {
     id: 88,
@@ -804,7 +804,7 @@ export const ETAP3_KEY_POINTS = [
     lat: 49.093585,
     lon: 22.690212,
     elevation: 1002.0,
-    distance_from_start: 0,
+    distance_from_start: 294.56,
   },
 ];
 
