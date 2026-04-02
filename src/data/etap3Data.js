@@ -773,7 +773,7 @@ export const ETAP3_KEY_POINTS = [
     elevation: 724.0,
     distance_from_start: 317.95,
     percent_of_route: 100.0
-  }
+  },
   {
     id: 85,
     name: 'Przełęcz pod Tarnicą',
