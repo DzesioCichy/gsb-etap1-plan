@@ -773,6 +773,38 @@ export const ETAP3_KEY_POINTS = [
     elevation: 724.0,
     distance_from_start: 317.95,
     percent_of_route: 100.0
+  }
+  {
+    id: 85,
+    name: 'Przełęcz pod Tarnicą',
+    lat: 49.138844,
+    lon: 22.601763,
+    elevation: 1276.0,
+    distance_from_start: 0,
+  },
+  {
+    id: 86,
+    name: 'Przełęcz Goprowska',
+    lat: 49.186669,
+    lon: 22.475778,
+    elevation: 1155.0,
+    distance_from_start: 0,
+  },
+  {
+    id: 87,
+    name: 'Wierszek Jeleni',
+    lat: 49.119278,
+    lon: 22.63778,
+    elevation: 964.0,
+    distance_from_start: 0,
+  },
+  {
+    id: 88,
+    name: 'Rozsypaniec',
+    lat: 49.093585,
+    lon: 22.690212,
+    elevation: 1002.0,
+    distance_from_start: 0,
   },
 ];
 
