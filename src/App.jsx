@@ -5,6 +5,7 @@ import Schedule from './components/Schedule'
 import Logistics from './components/Logistics'
 import Nutrition from './components/Nutrition'
 import { ETAP1_TITLE, ETAP1_SUBTITLE, ETAP1_DATE, ETAP1_DISTANCE, ETAP1_ELEVATION, ETAP1_TIME } from './data/routeData_metadata'
+import { Analytics } from '@vercel/analytics/react'
 
 // Etap 2 data inline - avoid import issues
 const ETAP2_DATA = {
@@ -167,6 +168,7 @@ function App() {
           <p className="mt-2">Powodzenia na szlaku! 🏔️</p>
         </div>
       </footer>
+      <Analytics />
     </div>
   )
 }
