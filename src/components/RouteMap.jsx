@@ -103,9 +103,9 @@ export default function RouteMap({ activeEtap = 'etap1' }) {
       mapInstanceRef.current = map;
 
       // Dodanie warstwy kafelków - Mapa Turystyczna
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors',
-        maxZoom: 19,
+      L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenTopoMap contributors',
+        maxZoom: 17,
       }).addTo(map);
       
       // Alternatywa: Mapa Turystyczna
