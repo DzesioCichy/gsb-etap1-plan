@@ -102,11 +102,17 @@ export default function RouteMap({ activeEtap = 'etap1' }) {
       const map = L.map(mapRef.current).setView(mapCenter, mapZoom);
       mapInstanceRef.current = map;
 
-      // Dodanie warstwy kafelków
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      // Dodanie warstwy kafelków - Mapa Turystyczna
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
         maxZoom: 19,
       }).addTo(map);
+      
+      // Alternatywa: Mapa Turystyczna
+      // L.tileLayer('https://maps.geoapify.com/v1/staticmap?style=osm-bright&width=600&height=400&center=lonlat:{lon},{lat}&zoom={z}&apiKey=YOUR_API_KEY', {
+      //   attribution: 'Mapa Turystyczna',
+      //   maxZoom: 18,
+      // }).addTo(map);
 
       // Ikony dla różnych typów punktów
       const parkingIcon = L.icon({
@@ -170,40 +176,16 @@ export default function RouteMap({ activeEtap = 'etap1' }) {
         console.warn(`⚠️ Brak danych trasy dla ${activeEtap}`);
       }
 
-      // Snapuj każdy punkt do najbliższego punktu na trasie
+      // NIE snapuj markery - wyświetlaj w oryginalnych współrzędnach
       const keyPoints = keyPointsData.map(point => {
-        // Punkty, które nie powinny być snapowane
-        const noSnapConditions = 
-          (point.type === 'parking') ||
-          (point.name && point.name.includes('Hala Boracza')) ||
-          (point.name && point.name.includes('Schronisko PTTK Turbacz'));
-
-        if (noSnapConditions) {
-          return {
-            ...point,
-            icon: getIcon(point.type),
-            distanceFromTrack: 'poza szlakiem'
-          };
-        }
-        
-        const { point: snappedPoint, distance } = findClosestPointOnTrack(
-          point.lat,
-          point.lon,
-          routeCoordinates
-        );
-
         return {
           ...point,
           icon: getIcon(point.type),
-          lat: snappedPoint[0],
-          lon: snappedPoint[1],
-          originalLat: point.lat,
-          originalLon: point.lon,
-          distanceFromTrack: (distance * 1000).toFixed(0)
+          distanceFromTrack: 'oryginalny marker'
         };
       });
 
-      console.log(`✓ Markery snapowane (${activeEtap === 'etap1' ? 'Etap 1' : 'Etap 2'}): ${keyPoints.length}`);
+      console.log(`✓ Markery załadowane (${activeEtap === 'etap1' ? 'Etap 1' : activeEtap === 'etap2' ? 'Etap 2' : 'Etap 3'}): ${keyPoints.length}`);
 
       // Dodanie markerów dla punktów kluczowych
       keyPoints.forEach(point => {
@@ -216,7 +198,7 @@ export default function RouteMap({ activeEtap = 'etap1' }) {
             <strong>${point.name}</strong><br/>
             Wysokość: ${point.height || 'N/A'} m<br/>
             Dystans: ${point.km || 0} km<br/>
-            ${point.distanceFromTrack !== 'poza szlakiem' ? `Oddalenie od szlaku: ${point.distanceFromTrack}m<br/>` : ''}
+            ${point.distanceFromTrack !== 'oryginalny marker' ? `Oddalenie od szlaku: ${point.distanceFromTrack}m<br/>` : ''}
             ${point.description ? `<em>${point.description}</em>` : ''}
           </div>
         `;
